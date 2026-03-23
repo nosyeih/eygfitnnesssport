@@ -33,6 +33,82 @@
 <body class="bg-neutral-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-50 font-body selection:bg-primary-container selection:text-on-primary transition-colors duration-300">
 
 <!-- ═══ APP BAR ═══════════════════════════════════════════════════════════════════ -->
+    <!-- Drawer Overlay -->
+    <div id="drawerOverlay" class="drawer-overlay"></div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileDrawer" class="mobile-drawer">
+        <div class="flex justify-between items-center p-6 border-b border-neutral-100 dark:border-white/5">
+            <span class="text-xl font-black font-space italic uppercase">MENÚ</span>
+            <button id="closeDrawer" class="text-black dark:text-white">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4 mb-10">
+        <button id="addToCartBtn" class="flex-1 bg-black dark:bg-white text-white dark:text-black py-5 font-headline font-bold uppercase tracking-widest hover:bg-[#ccf200] hover:text-black dark:hover:bg-[#ccf200] transition-all flex items-center justify-center gap-3">
+          <span class="material-symbols-outlined">shopping_cart</span>
+          Añadir al Carrito
+        </button>
+        <button id="buyNowBtn" class="flex-1 bg-primary-container text-on-primary py-5 font-headline font-bold uppercase tracking-widest hover:brightness-110 transition-all">
+          Comprar Ahora
+        </button>
+      </div>
+        <div class="flex flex-col p-6 gap-6">
+            <a href="../index.html" class="flex items-center gap-4 text-lg font-bold font-space uppercase tracking-widest text-[#ccf200]">
+                <span class="material-symbols-outlined">home</span> INICIO
+            </a>
+            <a href="../store.html" class="flex items-center gap-4 text-lg font-bold font-space uppercase tracking-widest">
+                <span class="material-symbols-outlined">store</span> TIENDA
+            </a>
+            <div class="h-px bg-neutral-100 dark:bg-white/5 my-2"></div>
+            <a href="../store.html?cat=Caminadoras" class="text-sm font-medium uppercase tracking-wider text-neutral-500 hover:text-black dark:hover:text-white">Caminadoras</a>
+            <a href="../store.html?cat=Máquinas" class="text-sm font-medium uppercase tracking-wider text-neutral-500 hover:text-black dark:hover:text-white">Multigimnasios</a>
+            <a href="../store.html?cat=Bancos" class="text-sm font-medium uppercase tracking-wider text-neutral-500 hover:text-black dark:hover:text-white">Bancos y Pesas</a>
+            <div class="h-px bg-neutral-100 dark:bg-white/5 my-2"></div>
+            <a href="../envios.html" class="text-sm font-medium uppercase tracking-wider text-neutral-500">Envíos</a>
+            <a href="../garantia.html" class="text-sm font-medium uppercase tracking-wider text-neutral-500">Garantía</a>
+
+            <div class="h-px bg-neutral-100 dark:bg-white/5 my-2"></div>
+            <!-- Social Media -->
+            <div class="flex gap-6 mt-2">
+                <a href="https://www.instagram.com/eygfitnesssport/" target="_blank" class="text-neutral-500 hover:text-[#ccf200] transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
+                <a href="https://web.facebook.com/profile.php?id=100063661026654" target="_blank" class="text-neutral-500 hover:text-[#ccf200] transition-colors"><i class="fa-brands fa-facebook text-xl"></i></a>
+                <a href="https://www.tiktok.com/@damiam119?_r=1&_t=ZS-94t9IpDOlNN" target="_blank" class="text-neutral-500 hover:text-[#ccf200] transition-colors"><i class="fa-brands fa-tiktok text-xl"></i></a>
+                <a href="https://wa.me/51979497037" target="_blank" class="text-neutral-500 hover:text-[#ccf200] transition-colors"><i class="fa-brands fa-whatsapp text-xl"></i></a>
+            </div>
+        </div>
+        <div class="mt-auto p-6 border-t border-neutral-100 dark:border-white/5 bg-neutral-50 dark:bg-neutral-900/50">
+            <button onclick="window.toggleTheme()" class="flex items-center gap-4 w-full text-sm font-bold uppercase tracking-widest">
+                <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+                <span class="material-symbols-outlined hidden dark:inline-block">light_mode</span>
+                CAMBIAR TEMA
+            </button>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation (Mobile Only) -->
+    <div class="bottom-nav md:hidden">
+        <a href="../index.html" class="bottom-nav-item">
+            <span class="material-symbols-outlined">home</span>
+            <span>Inicio</span>
+        </a>
+        <a href="../store.html" class="bottom-nav-item">
+            <span class="material-symbols-outlined">storefront</span>
+            <span>Tienda</span>
+        </a>
+        <a href="../cart.html" class="bottom-nav-item">
+            <div class="relative inline-block">
+                <span class="material-symbols-outlined">shopping_cart</span>
+                <span id="cart-count-mobile" class="absolute -top-1 -right-1.5 flex items-center justify-center w-4 h-4 bg-red-600 text-white text-[9px] font-bold rounded-full hidden">0</span>
+            </div>
+            <span>Carrito</span>
+        </a>
+        <a href="../#" class="bottom-nav-item">
+            <span class="material-symbols-outlined">person</span>
+            <span>Perfil</span>
+        </a>
+    </div>
+
 <header class="fixed top-0 w-full z-50 flex flex-col transition-colors duration-300">
   <div style="background-color:#ccf200; color:#000000;" class="w-full py-2 px-6 hidden sm:flex justify-between items-center text-[10px] md:text-xs font-bold font-space uppercase tracking-widest border-b border-black/10">
       <div class="flex items-center gap-4 md:gap-6 w-1/3">
@@ -62,9 +138,9 @@
   </div>
 <nav class="bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl border-b border-neutral-200 dark:border-white/5 transition-colors duration-300 w-full">
   <div class="flex justify-between items-center px-6 py-4 max-w-screen-2xl mx-auto">
-    <a href="../index.html" class="flex items-center gap-3 group">
-      <img src="../img/logos/favicon.svg" alt="E&G Fitness Logo" class="h-10 w-auto transition-transform duration-500 group-hover:scale-110 active:scale-95" />
-      <span class="text-2xl font-black tracking-tighter text-neutral-900 dark:text-white font-space italic uppercase">E&G FITNESS</span>
+    <a href="../index.html" class="flex items-center gap-2 md:gap-3 group">
+      <img src="../img/logos/favicon.svg" alt="E&G Fitness Logo" class="h-8 md:h-10 w-auto transition-transform duration-500 group-hover:scale-110 active:scale-95" />
+      <span class="text-xl md:text-2xl tracking-tighter text-black dark:text-white font-brand uppercase">E&G FITNNESS</span>
     </a>
     <div class="hidden md:flex gap-12 items-center cursor-pointer">
       <a class="font-['Space_Grotesk'] uppercase tracking-widest text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors text-xs font-bold" href="../store.html?cat=Caminadoras">Caminadoras</a>
@@ -73,20 +149,27 @@
       <a class="font-['Space_Grotesk'] uppercase tracking-widest text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors text-xs font-bold" href="../store.html?cat=Elípticas">Elípticas</a>
       <a class="font-['Space_Grotesk'] uppercase tracking-widest text-black dark:text-white transition-colors text-xs font-bold border-b-2 border-primary-container pb-0.5" href="../store.html">Tienda</a>
     </div>
-    <div class="flex items-center gap-6">
+    <div class="hidden md:flex items-center gap-6">
       <button id="theme-toggle" class="text-black dark:text-white hover:text-yellow-500 transition-all duration-300 active:scale-95 flex items-center justify-center p-2 rounded" aria-label="Cambiar Tema">
           <span class="material-symbols-outlined dark:hidden">dark_mode</span>
           <span class="material-symbols-outlined hidden dark:inline-block">light_mode</span>
       </button>
 
-      <button onclick="window.location.href='../cart.html'" class="text-black dark:text-white hover:text-yellow-500 transition-all duration-300 active:scale-95 relative p-2 flex items-center justify-center rounded" aria-label="Carrito">
-        <span class="material-symbols-outlined">shopping_cart</span>
-        <span id="cart-count" class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full hidden">0</span>
+      <button onclick="window.location.href='../cart.html'" class="text-black dark:text-white hover:text-yellow-500 transition-all duration-300 active:scale-95 p-2 flex items-center justify-center rounded" aria-label="Carrito">
+        <div class="relative inline-block">
+          <span class="material-symbols-outlined">shopping_cart</span>
+          <span id="cart-count" class="hidden">0</span>
+        </div>
       </button>
       <button class="text-black dark:text-white hover:text-yellow-500 transition-all duration-300 active:scale-95 flex items-center justify-center p-2 rounded" aria-label="Perfil">
         <span class="material-symbols-outlined">person</span>
       </button>
     </div>
+
+    <!-- Mobile Hamburger -->
+    <button id="mobileMenuBtn" class="md:hidden text-black dark:text-white p-2" aria-label="Menú">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
   </div>
 </nav>
 </header>
@@ -129,8 +212,8 @@
     </div>
     
     <!-- Thumbnails -->
-    <div id="thumbsContainer" class="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-2">
-      <!-- Inyectado por JS -->
+    <div id="thumbsContainer" class="grid grid-cols-4 sm:grid-cols-4 gap-3">
+      <!-- Thumbs via product.js -->
     </div>
   </div>
 
@@ -282,7 +365,7 @@
         <div class="flex-1">
             <div class="flex items-center gap-4 mb-8 group">
                 <img src="../img/logos/favicon.svg" alt="E&G Fitness Logo" class="h-12 w-auto transition-transform duration-500 group-hover:rotate-[360deg]" />
-                <div class="text-4xl font-black text-black dark:text-white font-space italic uppercase">E&G FITNESS.</div>
+                <div class="text-xl md:text-2xl tracking-tighter text-black dark:text-white font-brand uppercase">E&G FITNNESS.</div>
             </div>
             <p
                 class="text-neutral-500 dark:text-neutral-400 max-w-sm font-['Inter'] text-sm leading-relaxed uppercase tracking-tighter">
@@ -343,8 +426,8 @@
             © 2026 E&G FITNNESS SPORT. INGENIERÍA DE PRECISIÓN PARA EL RENDIMIENTO HUMANO.
         </p>
         <div class="flex items-center gap-4 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
-            <img src="https://img.icons8.com/color/48/visa.png" alt="Visa" style="height: 18px; width: auto;" class="object-contain"/>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png" alt="Mastercard" style="height: 22px; width: auto;" class="object-contain"/>
+            <img src="https://img.icons8.com/color/48/visa.png" alt="Visa" style="height: 38px; width: auto;" class="object-contain"/>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png" alt="Mastercard" style="height: 38px; width: auto;" class="object-contain"/>
             <img src="https://www.yape.com.pe/images/logo-yape_positive.png" alt="Yape" style="height: 38px; width: auto;" class="object-contain"/>
             <img src="https://plin.pe/wp-content/themes/plin/imgs/xlogo.png.pagespeed.ic.WboO1xu6K9.png" alt="Plin" style="height: 38px; width: auto;" class="object-contain"/>
         </div>
@@ -359,7 +442,9 @@
 </footer>
 
 <!-- Dejar JS al final -->
-<script src="../js/utils.js"></script>
+  <!-- Theme Manager (Anti-FOUC) -->
+  <script src="../js/main.js"></script>
+  <script src="../js/utils.js"></script>
 <script src="../js/product.js"></script>
 
 </body>

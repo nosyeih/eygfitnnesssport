@@ -162,6 +162,8 @@ function getCart() {
 function saveCart(cart) {
   localStorage.setItem('eg_cart', JSON.stringify(cart));
   updateCartIcon();
+  // Notificar a main.js para actualizar badges estáticos
+  window.dispatchEvent(new CustomEvent('cartUpdated'));
 }
 
 /**
@@ -200,20 +202,13 @@ function updateCartIcon() {
   const totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
   
   document.querySelectorAll('[aria-label="Carrito"]').forEach(btn => {
-    let badge = btn.querySelector('.cart-badge');
-    if (totalItems > 0) {
-      if (!badge) {
-        badge = document.createElement('span');
-        badge.className = 'cart-badge absolute top-0 right-0 inline-flex items-center justify-center w-4 h-4 text-[10px] font-bold text-white bg-red-600 shadow rounded-full select-none transform translate-x-1 -translate-y-1';
-        btn.appendChild(badge);
-      }
-      badge.textContent = totalItems > 99 ? '99+' : totalItems;
-    } else if (badge) {
-      badge.remove();
-    }
-    
-    // Navegación click
+    // Ya no inyectamos badges dinámicos aquí para evitar duplicados 
+    // con los IDs estáticos (#cart-count-mobile) manejados por main.js.
+    // Solo manejamos la navegación si es necesario.
     btn.onclick = (e) => {
+        // Si el link ya tiene el href correcto, no interferimos
+        if (btn.tagName === 'A') return; 
+        
         e.preventDefault();
         const inSubdir = window.location.pathname.includes('/products/');
         window.location.href = inSubdir ? '../cart.html' : 'cart.html';

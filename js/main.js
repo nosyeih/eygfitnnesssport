@@ -57,13 +57,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Función para actualizar contador de carrito (badges)
     const updateCartCount = () => {
-        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-        const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-        const countBadges = document.querySelectorAll('#cart-count');
+        const cart = JSON.parse(localStorage.getItem('eg_cart') || '[]');
+        const count = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
+        const countBadges = document.querySelectorAll('#cart-count, #cart-count-mobile');
         
         countBadges.forEach(badge => {
             if (count > 0) {
-                badge.textContent = count;
+                badge.textContent = count > 99 ? '99+' : count;
                 badge.classList.remove('hidden');
             } else {
                 badge.classList.add('hidden');
@@ -77,12 +77,51 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.onclick = window.toggleTheme; // Usar onclick para asegurar un solo binding
     });
 
+    // 3. Mobile Menu Logic
+    const initMobileMenu = () => {
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        const drawerOverlay = document.getElementById('drawerOverlay');
+        const closeDrawerBtn = document.getElementById('closeDrawer');
+
+        if (!mobileMenuBtn || !mobileDrawer || !drawerOverlay) return;
+
+        const toggleMenu = (e) => {
+            if (e) e.preventDefault();
+            const isOpen = mobileDrawer.classList.contains('open');
+            if (isOpen) {
+                mobileDrawer.classList.remove('open');
+                drawerOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            } else {
+                mobileDrawer.classList.add('open');
+                drawerOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        };
+
+        mobileMenuBtn.onclick = toggleMenu;
+        if (closeDrawerBtn) closeDrawerBtn.onclick = toggleMenu;
+        drawerOverlay.onclick = toggleMenu;
+
+        // Cerrar al hacer click en links
+        const drawerLinks = mobileDrawer.querySelectorAll('a');
+        drawerLinks.forEach(link => {
+            link.onclick = () => {
+                mobileDrawer.classList.remove('open');
+                drawerOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+        });
+    };
+
     // Sincronización inicial
+    initMobileMenu();
     updateCartCount();
     
     // Escuchar cambios externos en el carrito si es necesario
     window.addEventListener('storage', (e) => {
-        if (e.key === 'cart') updateCartCount();
+        if (e.key === 'eg_cart') updateCartCount();
     });
     
     // Escuchar evento custom de actualización (si existe en cart.js o store.js)

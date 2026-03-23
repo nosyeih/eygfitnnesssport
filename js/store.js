@@ -45,12 +45,21 @@ async function loadProducts() {
    CONSTRUCCIÓN DE FILTROS
    ═══════════════════════════════════════════════════════════════════════════ */
 function buildFilters(data) {
+  // Render desktop
   renderCheckGroup('categoryFilters', data.categories, 'cat');
   renderCheckGroup('brandFilters',    data.brands,     'brand');
   renderCheckGroup('seriesFilters',   data.series,     'series');
-  renderGenderGroup();
-  renderAvailabilityGroup();
-  renderRatingGroup();
+  renderGenderGroup('genderFilters');
+  renderAvailabilityGroup('availabilityFilters');
+  renderRatingGroup('ratingFilters');
+
+  // Render mobile
+  renderCheckGroup('categoryFiltersMobile', data.categories, 'cat');
+  renderCheckGroup('brandFiltersMobile',    data.brands,     'brand');
+  renderCheckGroup('seriesFiltersMobile',   data.series,     'series');
+  renderGenderGroup('genderFiltersMobile');
+  renderAvailabilityGroup('availabilityFiltersMobile');
+  renderRatingGroup('ratingFiltersMobile');
 }
 
 /**
@@ -83,13 +92,13 @@ function renderCheckGroup(containerId, items, type) {
   }).join('');
 }
 
-function renderGenderGroup() {
+function renderGenderGroup(containerId) {
   const genders = [
     { value: 'unisex',    label: 'Unisex',   icon: 'person' },
     { value: 'masculino', label: 'Hombres',  icon: 'man'    },
     { value: 'femenino',  label: 'Mujeres',  icon: 'woman'  },
   ];
-  const container = document.getElementById('genderFilters');
+  const container = document.getElementById(containerId);
   if (!container) return;
 
   container.innerHTML = genders.map(g => {
@@ -112,8 +121,8 @@ function renderGenderGroup() {
   }).join('');
 }
 
-function renderAvailabilityGroup() {
-  const container = document.getElementById('availabilityFilters');
+function renderAvailabilityGroup(containerId) {
+  const container = document.getElementById(containerId);
   if (!container) return;
 
   const items = [
@@ -136,8 +145,8 @@ function renderAvailabilityGroup() {
     </button>`).join('');
 }
 
-function renderRatingGroup() {
-  const container = document.getElementById('ratingFilters');
+function renderRatingGroup(containerId) {
+  const container = document.getElementById(containerId);
   if (!container) return;
 
   const ratings = [4.5, 4.0, 3.5, 3.0];
@@ -166,11 +175,17 @@ function toggleFilter(btn) {
   if (!setKey) return;
 
   const isChecked = btn.getAttribute('aria-checked') === 'true';
-  btn.setAttribute('aria-checked', String(!isChecked));
-  btn.classList.toggle('is-checked', !isChecked);
+  const newState = !isChecked;
 
-  if (!isChecked) state[setKey].add(value);
-  else            state[setKey].delete(value);
+  // Sincronizar todos los botones iguales (Desktop + Mobile)
+  const allBtns = document.querySelectorAll(`[data-type="${type}"][data-value="${value}"]`);
+  allBtns.forEach(b => {
+    b.setAttribute('aria-checked', String(newState));
+    b.classList.toggle('is-checked', newState);
+  });
+
+  if (newState) state[setKey].add(value);
+  else         state[setKey].delete(value);
 
   // Si se cambió categoría, sincronizar tabs
   if (type === 'cat') syncCategoryTabs();
@@ -181,23 +196,36 @@ function toggleFilter(btn) {
 
 function toggleAvailability(btn, field) {
   const isChecked = btn.getAttribute('aria-checked') === 'true';
-  btn.setAttribute('aria-checked', String(!isChecked));
-  btn.classList.toggle('is-checked', !isChecked);
-  state[field] = !isChecked;
+  const newState = !isChecked;
+
+  const allBtns = document.querySelectorAll(`[data-type="${field}"]`);
+  allBtns.forEach(b => {
+    b.setAttribute('aria-checked', String(newState));
+    b.classList.toggle('is-checked', newState);
+  });
+
+  state[field] = newState;
   applyFilters();
   updateActiveChips();
 }
 
 function setRating(btn, val) {
-  // Desmarcar todos los radios de rating primero
-  document.querySelectorAll('[data-rating]').forEach(b => {
+  const ratings = document.querySelectorAll('[data-rating]');
+  const isSelected = btn.getAttribute('aria-checked') === 'true';
+  const newState = !isSelected;
+
+  // Desmarcar todos primero
+  ratings.forEach(b => {
     b.setAttribute('aria-checked', 'false');
     b.classList.remove('is-checked');
   });
-  const alreadySelected = state.minRating === val;
-  if (!alreadySelected) {
-    btn.setAttribute('aria-checked', 'true');
-    btn.classList.add('is-checked');
+
+  if (newState) {
+    const matching = document.querySelectorAll(`[data-rating="${val}"]`);
+    matching.forEach(b => {
+      b.setAttribute('aria-checked', 'true');
+      b.classList.add('is-checked');
+    });
     state.minRating = val;
   } else {
     state.minRating = 0;
@@ -207,17 +235,47 @@ function setRating(btn, val) {
 
 /* ── Price range ── */
 function updatePriceRange() {
-  let min = parseInt(document.getElementById('sliderMin').value);
-  let max = parseInt(document.getElementById('sliderMax').value);
-  if (min > max - 100) { min = max - 100; document.getElementById('sliderMin').value = min; }
+  syncPriceUI('sliderMin', 'sliderMax', 'priceMin', 'priceMax', 'priceMinInput', 'priceMaxInput');
+  applyFilters();
+}
 
-  document.getElementById('priceMin').textContent = min.toLocaleString();
-  document.getElementById('priceMax').textContent = max.toLocaleString();
-  document.getElementById('priceMinInput').value = min;
-  document.getElementById('priceMaxInput').value = max;
+function updatePriceRangeMobile() {
+  syncPriceUI('sliderMinMobile', 'sliderMaxMobile', 'priceMinMobile', 'priceMaxMobile', null, null);
+  applyFilters();
+}
+
+/** Helper para sincronizar inputs de precio */
+function syncPriceUI(sMinId, sMaxId, lMinId, lMaxId, iMinId, iMaxId) {
+  let min = parseInt(document.getElementById(sMinId).value);
+  let max = parseInt(document.getElementById(sMaxId).value);
+  if (min > max - 100) { min = max - 100; document.getElementById(sMinId).value = min; }
+
+  // Actualizar labels desktop
+  if(document.getElementById('priceMin')) document.getElementById('priceMin').textContent = min.toLocaleString();
+  if(document.getElementById('priceMax')) document.getElementById('priceMax').textContent = max.toLocaleString();
+  
+  // Actualizar labels mobile
+  if(document.getElementById('priceMinMobile')) document.getElementById('priceMinMobile').textContent = min.toLocaleString();
+  if(document.getElementById('priceMaxMobile')) document.getElementById('priceMaxMobile').textContent = max.toLocaleString();
+  
+  // Sincronizar sliders si no son los que dispararon
+  ['sliderMin', 'sliderMinMobile'].forEach(id => {
+    const el = document.getElementById(id);
+    if(el && el.id !== sMinId) el.value = min;
+  });
+  ['sliderMax', 'sliderMaxMobile'].forEach(id => {
+    const el = document.getElementById(id);
+    if(el && el.id !== sMaxId) el.value = max;
+  });
+
+  // Actualizar inputs numericos (solo desktop por ahora)
+  if(iMinId && document.getElementById(iMinId)) document.getElementById(iMinId).value = min;
+  if(iMaxId && document.getElementById(iMaxId)) document.getElementById(iMaxId).value = max;
+  if(sMinId !== 'sliderMin' && document.getElementById('priceMinInput')) document.getElementById('priceMinInput').value = min;
+  if(sMaxId !== 'sliderMax' && document.getElementById('priceMaxInput')) document.getElementById('priceMaxInput').value = max;
+
   state.priceMin = min;
   state.priceMax = max;
-  applyFilters();
 }
 
 function syncFromInputs() {
@@ -225,12 +283,11 @@ function syncFromInputs() {
   let max = parseInt(document.getElementById('priceMaxInput').value) || 5000;
   min = Math.max(500, Math.min(min, 4900));
   max = Math.max(min + 100, Math.min(max, 5000));
+  
   document.getElementById('sliderMin').value = min;
   document.getElementById('sliderMax').value = max;
-  document.getElementById('priceMin').textContent = min.toLocaleString();
-  document.getElementById('priceMax').textContent = max.toLocaleString();
-  state.priceMin = min;
-  state.priceMax = max;
+  
+  syncPriceUI('sliderMin', 'sliderMax', 'priceMin', 'priceMax', 'priceMinInput', 'priceMaxInput');
   applyFilters();
 }
 
@@ -442,8 +499,11 @@ function clearFilterValue(type, value) {
   if (!setKey) return;
   state[setKey].delete(value);
 
-  const btn = document.getElementById(`${type}_${slugify(value)}`);
-  if (btn) { btn.setAttribute('aria-checked', 'false'); btn.classList.remove('is-checked'); }
+  const allBtns = document.querySelectorAll(`[data-type="${type}"][data-value="${value}"]`);
+  allBtns.forEach(btn => {
+    btn.setAttribute('aria-checked', 'false');
+    btn.classList.remove('is-checked');
+  });
 
   syncCategoryTabs();
   applyFilters();

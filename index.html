@@ -26,20 +26,86 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link rel="shortcut icon" href="img/logos/favicon.svg" type="image/x-icon" />
     <link rel="apple-touch-icon" href="img/logos/apple-touch-icon.png" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@900&display=swap" rel="stylesheet"/>
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/components.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <link rel="stylesheet" href="css/index-exclusive.css" />
 </head>
 
 <body
     class="bg-background dark:bg-neutral-950 text-on-background dark:text-neutral-50 selection:bg-primary-container selection:text-on-primary-container transition-colors duration-300">
+    <!-- Drawer Overlay -->
+    <div id="drawerOverlay" class="drawer-overlay"></div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileDrawer" class="mobile-drawer">
+        <div class="flex justify-between items-center p-6 border-b border-neutral-100 dark:border-white/5">
+            <span class="text-xl font-black font-space italic uppercase">MENÚ</span>
+            <button id="closeDrawer" class="text-black dark:text-white">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="flex flex-col p-6 gap-6">
+            <a href="index.html" class="flex items-center gap-4 text-lg font-bold font-space uppercase tracking-widest text-[#ccf200]">
+                <span class="material-symbols-outlined">home</span> INICIO
+            </a>
+            <a href="store.html" class="flex items-center gap-4 text-lg font-bold font-space uppercase tracking-widest">
+                <span class="material-symbols-outlined">store</span> TIENDA
+            </a>
+            <div class="h-px bg-neutral-100 dark:bg-white/5 my-2"></div>
+            <a href="store.html?cat=Caminadoras" class="text-sm font-medium uppercase tracking-wider text-neutral-500 hover:text-black dark:hover:text-white">Caminadoras</a>
+            <a href="store.html?cat=Máquinas" class="text-sm font-medium uppercase tracking-wider text-neutral-500 hover:text-black dark:hover:text-white">Multigimnasios</a>
+            <a href="store.html?cat=Bancos" class="text-sm font-medium uppercase tracking-wider text-neutral-500 hover:text-black dark:hover:text-white">Bancos y Pesas</a>
+            <div class="h-px bg-neutral-100 dark:bg-white/5 my-2"></div>
+            <a href="envios.html" class="text-sm font-medium uppercase tracking-wider text-neutral-500">Envíos</a>
+            <a href="garantia.html" class="text-sm font-medium uppercase tracking-wider text-neutral-500">Garantía</a>
+
+            <div class="h-px bg-neutral-100 dark:bg-white/5 my-2"></div>
+            <!-- Social Media -->
+            <div class="flex gap-6 mt-2">
+                <a href="https://www.instagram.com/eygfitnesssport/" target="_blank" class="text-neutral-500 hover:text-[#ccf200] transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
+                <a href="https://web.facebook.com/profile.php?id=100063661026654" target="_blank" class="text-neutral-500 hover:text-[#ccf200] transition-colors"><i class="fa-brands fa-facebook text-xl"></i></a>
+                <a href="https://www.tiktok.com/@damiam119?_r=1&_t=ZS-94t9IpDOlNN" target="_blank" class="text-neutral-500 hover:text-[#ccf200] transition-colors"><i class="fa-brands fa-tiktok text-xl"></i></a>
+                <a href="https://wa.me/51979497037" target="_blank" class="text-neutral-500 hover:text-[#ccf200] transition-colors"><i class="fa-brands fa-whatsapp text-xl"></i></a>
+            </div>
+        </div>
+        <div class="mt-auto p-6 border-t border-neutral-100 dark:border-white/5 bg-neutral-50 dark:bg-neutral-900/50">
+            <button onclick="window.toggleTheme()" class="flex items-center gap-4 w-full text-sm font-bold uppercase tracking-widest">
+                <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+                <span class="material-symbols-outlined hidden dark:inline-block">light_mode</span>
+                CAMBIAR TEMA
+            </button>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation (Mobile Only) -->
+    <div class="bottom-nav md:hidden">
+        <a href="index.html" class="bottom-nav-item active">
+            <span class="material-symbols-outlined">home</span>
+            <span>Inicio</span>
+        </a>
+        <a href="store.html" class="bottom-nav-item">
+            <span class="material-symbols-outlined">storefront</span>
+            <span>Tienda</span>
+        </a>
+        <a href="cart.html" class="bottom-nav-item">
+            <div class="relative inline-block">
+                <span class="material-symbols-outlined">shopping_cart</span>
+                <span id="cart-count-mobile" class="hidden">0</span>
+            </div>
+            <span>Carrito</span>
+        </a>
+        <a href="#" class="bottom-nav-item">
+            <span class="material-symbols-outlined">person</span>
+            <span>Perfil</span>
+        </a>
+    </div>
+
     <header class="fixed top-0 w-full z-50 flex flex-col transition-colors duration-300">
         <!-- Top Bar Amarilla -->
         <div style="background-color:#ccf200; color:#000000;" class="w-full py-2 px-6 hidden sm:flex justify-between items-center text-[10px] md:text-xs font-bold font-space uppercase tracking-widest border-b border-black/10">
@@ -71,10 +137,10 @@
         <!-- Navbar -->
         <nav class="bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl border-b border-neutral-200 dark:border-white/5 transition-colors duration-300 w-full">
             <div class="flex justify-between items-center px-6 py-4 max-w-screen-2xl mx-auto">
-                <a href="index.html" class="flex items-center gap-3 group">
-                    <img src="img/logos/favicon.svg" alt="E&G Fitness Logo" class="h-10 w-auto transition-transform duration-500 group-hover:scale-110 active:scale-95" />
-                    <span class="text-2xl font-black tracking-tighter text-black dark:text-white font-space italic uppercase">E&G FITNESS</span>
-                </a>
+            <a href="index.html" class="flex items-center gap-2 md:gap-3 group">
+                <img src="img/logos/favicon.svg" alt="E&G Fitness Logo" class="h-8 md:h-10 w-auto transition-transform duration-500 group-hover:scale-110 active:scale-95" />
+                <span class="text-xl md:text-2xl tracking-tighter text-black dark:text-white font-brand uppercase">E&G FITNNESS</span>
+            </a>
             
             <div class="hidden md:flex items-center gap-12">
                 <a class="font-['Space_Grotesk'] uppercase tracking-widest text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors"
@@ -88,7 +154,7 @@
                 <a class="font-['Space_Grotesk'] uppercase tracking-widest text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors"
                     href="store.html">TIENDA</a>
             </div>
-            <div class="flex items-center gap-6">
+            <div class="hidden md:flex items-center gap-6">
                 <!-- Actions -->
                 <button
                     class="text-black dark:text-white hover:text-yellow-500 transition-all duration-300 active:scale-95 flex items-center justify-center p-2 rounded" aria-label="Buscar">
@@ -99,15 +165,22 @@
                     <span class="material-symbols-outlined hidden dark:inline-block">light_mode</span>
                 </button>
                 <button onclick="window.location.href='cart.html'"
-                    class="text-black dark:text-white hover:text-yellow-500 transition-all duration-300 active:scale-95 relative p-2 flex items-center justify-center rounded" aria-label="Carrito">
-                    <span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
-                    <span id="cart-count" class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full hidden">0</span>
+                    class="text-black dark:text-white hover:text-yellow-500 transition-all duration-300 active:scale-95 p-2 flex items-center justify-center rounded" aria-label="Carrito">
+                    <div class="relative inline-block">
+                        <span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+                        <span id="cart-count" class="hidden">0</span>
+                    </div>
                 </button>
                 <button
                     class="text-black dark:text-white hover:text-yellow-500 transition-all duration-300 active:scale-95 flex items-center justify-center p-2 rounded" aria-label="Perfil">
                     <span class="material-symbols-outlined" data-icon="person">person</span>
                 </button>
             </div>
+
+            <!-- Mobile Hamburger -->
+            <button id="mobileMenuBtn" class="md:hidden text-black dark:text-white p-2" aria-label="Menú">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
         </nav>
     </header>
     <main>
@@ -153,7 +226,7 @@
                         <div class="top-machine-card group">
                             <span class="machine-badge">Top Ventas</span>
                             <div class="relative z-10">
-                                <h3 class="font-space text-2xl font-black italic mb-2 tracking-tight">MHG1601 - Máquina Multifuncional con Banco y Barra</h3>
+                                <h3 class="font-space text-2xl font-black mb-2 text-black dark:text-white">MHG1601 - Máquina Multifuncional con Banco y Barra</h3>
                                 <p class="text-[10px] text-neutral-500 mb-6 uppercase tracking-[0.3em] font-bold">E&G FITNNESS SPORT</p>
                                 
                                 <div class="relative h-48 mb-8 transform group-hover:scale-110 transition-transform duration-700">
@@ -237,18 +310,18 @@
                         <div
                             class="bg-surface-container-low dark:bg-neutral-900 p-8 relative z-10 transition-colors duration-300">
                             <img class="w-full aspect-square object-contain" data-alt="Cinta de correr premium"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3U0uunoYy9ILDKy0Y2XxjwNJ4GCJzCblk3p2iw6xaIyaYy4CPkIN_K7QSc367zl0hCWM6RtrKy6MOzH0OGach2kq-I24Sb7KkfZhT2WYCQ3XAduGKq7TisnTYejCFZJQO4uJtVOQUYNUoji1SDbansKkQxwqbKavb-sXJ7BW67suqauacXuht5kUgzJpMjcnumgAmREOWC9GqWO7oPX6wSySrfP4mcz8W9XQ_zEu2z88FhRkpX9MHbJTUjDc9x_sDbdTvx9naaak" />
+                                src="./img/products/TM2510EM_4.WEBP" />
                         </div>
                         <div class="flex mt-4 gap-4">
                             <div
                                 class="w-24 h-24 bg-surface-container-low dark:bg-neutral-900 p-2 cursor-pointer border border-neutral-200 dark:border-neutral-800 transition-colors">
                                 <img class="w-full h-full object-cover grayscale" data-alt="Detalle cinta de correr"
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnp8ZK3gYVWRq4lahPJ4NVwR0wU_ILTyPjj3KB6AOiNUa4J9ynlZo2aaHSWZPp8Qg8qfRdXbvZTuyjP4nuUw4igeAU53fLrrHy_I8xTY1cJ_NiIJRX6g7giAR30DtO8gAhI0cQHpV1FlLqTiwqoybTUXVOPYjKHcp_zJ3jkrNJmR4ngQSxv9Ral9DcHGLqRKNe5XZQkZ_XXAb1yY3phl9Lx73uNyzHBql5_JiXzt1PvgF0v43XCRldiZ7GRWFoKUCDioj88hvoAfU" />
+                                    src="./img/products/TM2510EM_2.WEBP" />
                             </div>
                             <div
                                 class="w-24 h-24 bg-surface-container-low dark:bg-neutral-900 p-2 cursor-pointer border border-transparent hover:border-neutral-200 dark:hover:border-neutral-700 transition-all">
                                 <img class="w-full h-full object-cover grayscale" data-alt="Panel cinta de correr"
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCK003C0IDvglC9uaW7_vbItvnr_m8Ii2N6pgdzeh5gQUHhRKsXvA5o39-u3u_wC-jegsX6tKR0Kz_TQvDYRgtKwk0srEZpV73BlsNf3pdovbNRd_A82oPrT2cl56d5wBwlc6lJpt-Tig37Rix0hU3dW2B5iLEMLVo46KhhCHmJkI0gDlIinRERMzbqLTwz1G7X1Kaok-UDQCr494p9VEr5T9mIcBmweP6PlUWGJIUQlDJFXquONtw_TbQzhG1v73-I-XhAZ7EgkkQ" />
+                                    src="./img/products/TM2510EM_1.WEBP" />
                             </div>
                         </div>
                     </div>
@@ -257,38 +330,37 @@
                             class="text-primary-fixed font-space tracking-widest uppercase text-xs mb-4 block font-bold">Rendimiento
                             Diseñado</span>
                         <h2
-                            class="font-space text-4xl md:text-6xl font-black text-black dark:text-white mb-6 italic tracking-tighter">
-                            TITAN
-                            X-1000<br />NÚCLEO CARDIO</h2>
+                            class="font-space text-4xl md:text-6xl font-black text-black dark:text-white mb-6">
+                            TM2510EM<br />Caminadora Eléctrica Multifuncional</h2>
                         <div class="space-y-8 mb-12">
                             <p class="text-neutral-600 dark:text-neutral-400 leading-relaxed text-lg">
-                                Experimenta la tecnología de impacto cero gravedad. La Titan X-1000 es más que una cinta
+                                Experimenta la tecnología de impacto cero gravedad. La TM2510EM es más que una cinta
                                 de correr: es un instrumento de precisión para el atleta de élite.
                             </p>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
                                 <div class="border-l border-neutral-200 dark:border-neutral-800 pl-4">
                                     <div
-                                        class="text-[0.6rem] text-black/40 dark:text-white/40 font-bold tracking-widest mb-1 uppercase">
+                                        class="text-[0.6rem] text-black/40 dark:text-white/60 font-bold tracking-widest mb-1 uppercase">
                                         Velocidad Máx</div>
                                     <div class="text-2xl font-space font-bold text-black dark:text-white">24 KM/H</div>
                                 </div>
                                 <div class="border-l border-neutral-200 dark:border-neutral-800 pl-4">
                                     <div
-                                        class="text-[0.6rem] text-black/40 dark:text-white/40 font-bold tracking-widest mb-1 uppercase">
+                                        class="text-[0.6rem] text-black/40 dark:text-white/60 font-bold tracking-widest mb-1 uppercase">
                                         Inclinación</div>
                                     <div class="text-2xl font-space font-bold text-black dark:text-white">20 NIVELES
                                     </div>
                                 </div>
                                 <div class="border-l border-neutral-200 dark:border-neutral-800 pl-4">
                                     <div
-                                        class="text-[0.6rem] text-black/40 dark:text-white/40 font-bold tracking-widest mb-1 uppercase">
+                                        class="text-[0.6rem] text-black/40 dark:text-white/60 font-bold tracking-widest mb-1 uppercase">
                                         Potencia Motor</div>
                                     <div class="text-2xl font-space font-bold text-black dark:text-white">5.0 HP PICO
                                     </div>
                                 </div>
                                 <div class="border-l border-neutral-200 dark:border-neutral-800 pl-4">
                                     <div
-                                        class="text-[0.6rem] text-black/40 dark:text-white/40 font-bold tracking-widest mb-1 uppercase">
+                                        class="text-[0.6rem] text-black/40 dark:text-white/60 font-bold tracking-widest mb-1 uppercase">
                                         Conectividad</div>
                                     <div class="text-2xl font-space font-bold text-black dark:text-white">OLED 4K</div>
                                 </div>
@@ -310,7 +382,7 @@
             class="py-32 bg-surface-container-low dark:bg-neutral-900 transition-colors duration-300 overflow-hidden">
             <div class="px-8 mb-20 flex justify-between items-end">
                 <div>
-                    <h2 class="font-space text-5xl font-black text-black dark:text-white italic tracking-tighter">LA
+                    <h2 class="font-space text-5xl font-black text-black dark:text-white">LA
                         COLECCIÓN PRINCIPAL
                     </h2>
                     <p class="text-black/40 dark:text-white/40 mt-2 font-space tracking-widest text-xs uppercase">
@@ -333,7 +405,7 @@
                         <div>
                             <div class="text-[0.6rem] text-primary-fixed font-bold tracking-[0.3em] uppercase mb-1">
                                 FUERZA</div>
-                            <h3 class="font-space text-xl font-bold text-black dark:text-white uppercase italic">
+                            <h3 class="font-space text-xl font-bold text-black dark:text-white uppercase">
                                 SUB1090 Banco Pro</h3>
                         </div>
                         <span
@@ -353,7 +425,7 @@
                         <div>
                             <div class="text-[0.6rem] text-primary-fixed font-bold tracking-[0.3em] uppercase mb-1">
                                 FUERZA</div>
-                            <h3 class="font-space text-xl font-bold text-black dark:text-white uppercase italic">MHG1301 Home Gym</h3>
+                            <h3 class="font-space text-xl font-bold text-black dark:text-white uppercase">MHG1301 Home Gym</h3>
                         </div>
                         <span
                             class="material-symbols-outlined text-black/20 dark:text-white/20 group-hover:text-black dark:group-hover:text-white transition-colors">north_east</span>
@@ -372,7 +444,7 @@
                         <div>
                             <div class="text-[0.6rem] text-primary-fixed font-bold tracking-[0.3em] uppercase mb-1">
                                 CARDIO</div>
-                            <h3 class="font-space text-xl font-bold text-black dark:text-white uppercase italic">TM2510EM Caminadora</h3>
+                            <h3 class="font-space text-xl font-bold text-black dark:text-white uppercase">TM2510EM Caminadora</h3>
                         </div>
                         <span
                             class="material-symbols-outlined text-black/20 dark:text-white/20 group-hover:text-black dark:group-hover:text-white transition-colors">north_east</span>
@@ -391,7 +463,7 @@
                         <div>
                             <div class="text-[0.6rem] text-primary-fixed font-bold tracking-[0.3em] uppercase mb-1">
                                 CARDIO</div>
-                            <h3 class="font-space text-xl font-bold text-black dark:text-white uppercase italic">TM3480E Plegable</h3>
+                            <h3 class="font-space text-xl font-bold text-black dark:text-white uppercase">TM3480E Plegable</h3>
                         </div>
                         <span
                             class="material-symbols-outlined text-black/20 dark:text-white/20 group-hover:text-black dark:group-hover:text-white transition-colors">north_east</span>
@@ -408,7 +480,7 @@
                 DISEÑO</div>
             <div class="container mx-auto px-8 relative z-10 text-center">
                 <h2
-                    class="font-space text-4xl md:text-7xl font-black text-black dark:text-white italic tracking-tighter mb-8 uppercase">
+                    class="font-space text-4xl md:text-7xl font-black text-black dark:text-white tracking-tighter mb-8 uppercase">
                     ¿Buscas algo más personalizado?</h2>
                 <p class="text-black/60 dark:text-white/60 text-lg mb-12 max-w-2xl mx-auto">
                     Desde gimnasios en casa hasta centros de alto rendimiento, diseñamos espacios que inspiran grandeza. Contáctanos directamente para una asesoría exclusiva.
@@ -433,7 +505,7 @@
             <div class="flex-1">
                 <div class="flex items-center gap-4 mb-8 group">
                     <img src="img/logos/favicon.svg" alt="E&G Fitness Logo" class="h-12 w-auto transition-transform duration-500 group-hover:rotate-[360deg]" />
-                    <div class="text-4xl font-black text-black dark:text-white font-space italic uppercase">E&G FITNESS.</div>
+                    <div class="text-xl md:text-2xl tracking-tighter text-black dark:text-white font-brand uppercase">E&G FITNNESS.</div>
                 </div>
                 <p
                     class="text-neutral-500 dark:text-neutral-400 max-w-sm font-['Inter'] text-sm leading-relaxed uppercase tracking-tighter">
@@ -495,8 +567,8 @@
             </p>
             <!-- Métodos de Pago Perú -->
             <div class="flex items-center gap-4 opacity-70 grayscale hover:grayscale-0 transition-all duration-500 mb-6 md:mb-0">
-                <img src="https://img.icons8.com/color/48/visa.png" alt="Visa" style="height: 18px; width: auto;" class="object-contain"/>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png" alt="Mastercard" style="height: 22px; width: auto;" class="object-contain"/>
+                <img src="https://img.icons8.com/color/48/visa.png" alt="Visa" style="height: 38px; width: auto;" class="object-contain"/>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png" alt="Mastercard" style="height: 38px; width: auto;" class="object-contain"/>
                 <img src="https://www.yape.com.pe/images/logo-yape_positive.png" alt="Yape" style="height: 38px; width: auto;" class="object-contain"/>
                 <img src="https://plin.pe/wp-content/themes/plin/imgs/xlogo.png.pagespeed.ic.WboO1xu6K9.png" alt="Plin" style="height: 38px; width: auto;" class="object-contain"/>
             </div>

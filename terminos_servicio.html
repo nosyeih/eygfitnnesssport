@@ -57,12 +57,35 @@
   <div class="flex justify-between items-center px-6 py-4 max-w-screen-2xl mx-auto">
     <a href="index.html" class="flex items-center gap-3 group">
       <img src="img/logos/favicon.svg" alt="E&G Fitness Logo" class="h-10 w-auto transition-transform duration-500 group-hover:scale-110 active:scale-95" />
-      <span class="text-2xl font-black tracking-tighter text-neutral-900 dark:text-white font-space italic uppercase">E&G FITNESS</span>
+      <span class="text-xl md:text-2xl tracking-tighter text-black dark:text-white font-brand uppercase">E&G FITNNESS</span>
     </a>
+    <!-- inicio -->
+    <div class="hidden md:flex gap-8 items-center cursor-pointer">
+      <a class="text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors font-headline tracking-widest uppercase text-xs font-bold" href="index.html">Inicio</a>
+    </div>
+    <!-- tienda -->
     <div class="hidden md:flex gap-8 items-center cursor-pointer">
       <a class="text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors font-headline tracking-widest uppercase text-xs font-bold" href="store.html">Tienda</a>
     </div>
+    <!-- equipamiento -->
+    <div class="hidden md:flex gap-8 items-center cursor-pointer">
+      <a class="text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors font-headline tracking-widest uppercase text-xs font-bold" href="store.html?cat=Máquinas">Equipamiento</a>
+    </div>
+    <!-- cardio -->
+    <div class="hidden md:flex gap-8 items-center cursor-pointer">
+      <a class="text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors font-headline tracking-widest uppercase text-xs font-bold" href="store.html?cat=Caminadoras">Cardio</a>
+    </div>
+    <!-- fuerza -->
+    <div class="hidden md:flex gap-8 items-center cursor-pointer">
+      <a class="text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors font-headline tracking-widest uppercase text-xs font-bold" href="store.html?cat=Bancos">Fuerza</a>
+    </div>
+
+    
     <div class="flex items-center gap-6">
+      <button
+        class="text-black dark:text-white hover:text-yellow-500 transition-all duration-300 active:scale-95 flex items-center justify-center p-2 rounded" aria-label="Buscar">
+        <span class="material-symbols-outlined" data-icon="search">search</span>
+      </button>
       <button id="theme-toggle" class="text-black dark:text-white hover:text-yellow-500 transition-all duration-300 active:scale-95 flex items-center justify-center p-2 rounded" aria-label="Cambiar Tema">
         <span class="material-symbols-outlined dark:hidden">dark_mode</span>
         <span class="material-symbols-outlined hidden dark:inline-block">light_mode</span>
@@ -71,6 +94,10 @@
       <button onclick="window.location.href='cart.html'" class="text-black dark:text-white hover:text-yellow-500 transition-all duration-300 active:scale-95 relative p-2 flex items-center justify-center rounded" aria-label="Carrito">
         <span class="material-symbols-outlined">shopping_cart</span>
       </button>
+      <button class="text-black dark:text-white hover:text-yellow-500 transition-all duration-300 active:scale-95 flex items-center justify-center p-2 rounded" aria-label="Perfil">
+        <span class="material-symbols-outlined" data-icon="person">person</span>
+      </button>
+      
     </div>
   </div>
 </nav>
@@ -160,8 +187,8 @@
             © 2026 E&G FITNNESS SPORT. INGENIERÍA DE PRECISIÓN PARA EL RENDIMIENTO HUMANO.
         </p>
         <div class="flex items-center gap-4 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
-            <img src="https://img.icons8.com/color/48/visa.png" alt="Visa" style="height: 18px; width: auto;" class="object-contain"/>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png" alt="Mastercard" style="height: 22px; width: auto;" class="object-contain"/>
+            <img src="https://img.icons8.com/color/48/visa.png" alt="Visa" style="height: 38px; width: auto;" class="object-contain"/>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png" alt="Mastercard" style="height: 38px; width: auto;" class="object-contain"/>
             <img src="https://www.yape.com.pe/images/logo-yape_positive.png" alt="Yape" style="height: 38px; width: auto;" class="object-contain"/>
             <img src="https://plin.pe/wp-content/themes/plin/imgs/xlogo.png.pagespeed.ic.WboO1xu6K9.png" alt="Plin" style="height: 38px; width: auto;" class="object-contain"/>
         </div>
