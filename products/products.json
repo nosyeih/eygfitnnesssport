@@ -1,0 +1,339 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "model": "TM2510EM",
+      "name": "Caminadora Eléctrica Multifuncional",
+      "brand": "E&G Fitness",
+      "series": "Pro Sport",
+      "category": "Caminadoras",
+      "gender": "unisex",
+      "price": 2499.00,
+      "originalPrice": 2899.00,
+      "rating": 4.8,
+      "reviews": 124,
+      "badge": "BEST SELLER",
+      "inStock": true,
+      "description": "Caminadora eléctrica multifuncional con motor de 2.5 HP DC, velocidad de 1 a 20 km/h, inclinación automática hasta 18-20%, capacidad máxima 150 kg.",
+      "specs": {
+        "motor": "2.5 HP DC",
+        "maxSpeed": "20 km/h",
+        "incline": "18-20% AUTO",
+        "maxWeight": "150 kg",
+        "runningArea": "480 x 1350 mm"
+      },
+      "images": [
+        "img/products/TM2510EM_1.webp",
+        "img/products/TM2510EM_2.webp",
+        "img/products/TM2510EM_3.webp",
+        "img/products/TM2510EM_4.webp",
+        "img/products/TM2510EM_5.webp",
+        "img/products/TM2510EM_6.webp",
+        "img/products/TM2510EM_7.webp",
+        "img/products/TM2510EM_8.webp"
+      ],
+      "tags": ["cardio", "electrica", "inclinacion", "hogar"]
+    },
+    {
+      "id": 2,
+      "model": "TM3480E",
+      "name": "Caminadora Plegable con Sistema Hidráulico",
+      "brand": "E&G Fitness",
+      "series": "Compact",
+      "category": "Caminadoras",
+      "gender": "unisex",
+      "price": 2699.00,
+      "originalPrice": 3100.00,
+      "rating": 4.6,
+      "reviews": 89,
+      "badge": "NEW",
+      "inStock": true,
+      "description": "Caminadora eléctrica plegable con sistema hidráulico de auto-plegado, motor 2.0-3.0 HP DC, velocidad 1 a 16 km/h, inclinación hasta 12%.",
+      "specs": {
+        "motor": "3.0 HP DC",
+        "maxSpeed": "16 km/h",
+        "incline": "12% AUTO",
+        "maxWeight": "120 kg",
+        "runningArea": "460 x 1300 mm"
+      },
+      "images": [
+        "img/products/TM3480E_1.webp",
+        "img/products/TM3480E_2.webp",
+        "img/products/TM3480E_3.webp",
+        "img/products/TM3480E_4.webp",
+        "img/products/TM3480E_5.webp",
+        "img/products/TM3480E_6.webp",
+        "img/products/TM3480E_7.webp",
+        "img/products/TM3480E_8.webp"
+      ],
+      "tags": ["cardio", "plegable", "compacto", "departamento"]
+    },
+    {
+      "id": 3,
+      "model": "TM1250",
+      "name": "Caminadora Eléctrica Entry Level",
+      "brand": "PowerFit",
+      "series": "Essential",
+      "category": "Caminadoras",
+      "gender": "unisex",
+      "price": 1599.00,
+      "originalPrice": 1899.00,
+      "rating": 4.3,
+      "reviews": 56,
+      "badge": "OFERTA",
+      "inStock": false,
+      "description": "Caminadora eléctrica ideal para principiantes, motor 1.5 HP, velocidad 1-12 km/h, inclinación manual 3 niveles.",
+      "specs": {
+        "motor": "1.5 HP DC",
+        "maxSpeed": "12 km/h",
+        "incline": "3 niveles Manual",
+        "maxWeight": "100 kg",
+        "runningArea": "400 x 1200 mm"
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1594737625785-a6cbdabd333c?w=600&q=80",
+        "https://images.unsplash.com/photo-1576678927484-cc907957088c?w=600&q=80"
+      ],
+      "tags": ["cardio", "principiante", "entrada"]
+    },
+    {
+      "id": 4,
+      "model": "MHG1301",
+      "name": "Máquina Multifuncional de Gimnasio",
+      "brand": "E&G Fitness",
+      "series": "Home Gym",
+      "category": "Máquinas",
+      "gender": "unisex",
+      "price": 3399.00,
+      "originalPrice": 3999.00,
+      "rating": 4.9,
+      "reviews": 201,
+      "badge": "TOP RATED",
+      "inStock": true,
+      "description": "Máquina multifuncional de fuerza con barra de jalón superior, estación de press de pecho, extensión y curl de piernas, torre de pesas seleccionable.",
+      "specs": {
+        "weight": "Torre 70 kg",
+        "stations": "6 estaciones",
+        "maxWeight": "120 kg usuario",
+        "pulleys": "Sistema de poleas dual"
+      },
+      "images": [
+        "img/products/MHG1301.webp"
+      ],
+      "tags": ["fuerza", "multifuncional", "completo", "hogar"]
+    },
+    {
+      "id": 5,
+      "model": "MHG1601",
+      "name": "Máquina Multifuncional con Banco y Barra",
+      "brand": "E&G Fitness",
+      "series": "Home Gym",
+      "category": "Máquinas",
+      "gender": "masculino",
+      "price": 3499.00,
+      "originalPrice": 4200.00,
+      "rating": 4.7,
+      "reviews": 145,
+      "badge": "PRO",
+      "inStock": true,
+      "description": "Equipo multifuncional de musculación con barra de jalón, brazos de press pecho, desarrollador de piernas, banco ajustable con pad para bíceps.",
+      "specs": {
+        "weight": "Torre 80 kg",
+        "stations": "7 estaciones",
+        "maxWeight": "130 kg usuario",
+        "extras": "Curl de bíceps, piernas"
+      },
+      "images": [
+        "img/products/MHG1601.webp"
+      ],
+      "tags": ["fuerza", "musculacion", "banco", "bicep"]
+    },
+    {
+      "id": 6,
+      "model": "MHG6320",
+      "name": "Máquina Multifuncional B&G Sport",
+      "brand": "B&G Sport",
+      "series": "Sport Series",
+      "category": "Máquinas",
+      "gender": "masculino",
+      "price": 2199.00,
+      "originalPrice": 2699.00,
+      "rating": 4.5,
+      "reviews": 78,
+      "badge": "OFERTA",
+      "inStock": true,
+      "description": "Máquina multifuncional con barra de jalón superior, estación de press pecho, extensión y curl de piernas, estación de elevación de rodillas.",
+      "specs": {
+        "weight": "Torre 65 kg",
+        "stations": "5 estaciones",
+        "maxWeight": "110 kg usuario"
+      },
+      "images": [
+        "img/products/MHG6320.webp"
+      ],
+      "tags": ["fuerza", "multiestacion", "rodillas"]
+    },
+    {
+      "id": 7,
+      "model": "SUB1060",
+      "name": "Banco para Abdominales y Core",
+      "brand": "E&G Fitness",
+      "series": "Essential",
+      "category": "Bancos",
+      "gender": "unisex",
+      "price": 799.00,
+      "originalPrice": 999.00,
+      "rating": 4.4,
+      "reviews": 63,
+      "badge": null,
+      "inStock": true,
+      "description": "Banco diseñado para ejercicios abdominales y de core, superficie acolchada, rodillos de espuma y estructura metálica resistente.",
+      "specs": {
+        "maxWeight": "120 kg usuario",
+        "material": "Acero + tapiz PVC",
+        "adjustable": false
+      },
+      "images": [
+        "img/products/SUB1060.webp"
+      ],
+      "tags": ["abdominales", "core", "banco", "fuerza"]
+    },
+    {
+      "id": 8,
+      "model": "SUB1090",
+      "name": "Banco Multifuncional Ajustable",
+      "brand": "E&G Fitness",
+      "series": "Pro Sport",
+      "category": "Bancos",
+      "gender": "unisex",
+      "price": 899.00,
+      "originalPrice": 1199.00,
+      "rating": 4.6,
+      "reviews": 92,
+      "badge": "POPULAR",
+      "inStock": true,
+      "description": "Banco ajustable con respaldo y asiento acolchados, pad para bíceps (preacher curl), desarrollador de piernas con rodillos de espuma.",
+      "specs": {
+        "maxWeight": "150 kg usuario",
+        "positions": "7 posiciones",
+        "adjustable": true,
+        "extras": "Curl bíceps + piernas"
+      },
+      "images": [
+        "img/products/SUB1090.webp"
+      ],
+      "tags": ["banco", "ajustable", "bicep", "piernas", "fuerza"]
+    },
+    {
+      "id": 9,
+      "model": "BK7500",
+      "name": "Bicicleta Estática Spinning Pro",
+      "brand": "PowerFit",
+      "series": "Cardio Pro",
+      "category": "Bicicletas",
+      "gender": "unisex",
+      "price": 1899.00,
+      "originalPrice": 2299.00,
+      "rating": 4.7,
+      "reviews": 178,
+      "badge": "BEST SELLER",
+      "inStock": false,
+      "description": "Bicicleta estática de spinning con volante de inercia de 20 kg, resistencia magnética, manillar y sillín ajustables, monitor LCD.",
+      "specs": {
+        "flywheel": "20 kg",
+        "resistance": "Magnética 16 niveles",
+        "maxWeight": "130 kg usuario",
+        "display": "LCD multifunción"
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1521805492803-b1ccd1f2e40d?w=600&q=80",
+        "https://images.unsplash.com/photo-1517130038641-a774d04afb3c?w=600&q=80"
+      ],
+      "tags": ["cardio", "spinning", "bicicleta", "indoor"]
+    },
+    {
+      "id": 10,
+      "model": "BK3200",
+      "name": "Bicicleta Recumbente con Respaldo",
+      "brand": "E&G Fitness",
+      "series": "Comfort",
+      "category": "Bicicletas",
+      "gender": "femenino",
+      "price": 1499.00,
+      "originalPrice": 1799.00,
+      "rating": 4.5,
+      "reviews": 45,
+      "badge": "NEW",
+      "inStock": false,
+      "description": "Bicicleta recumbente ergonómica con respaldo acolchado, 8 niveles de resistencia magnética, ideal para rehabilitación y cardio suave.",
+      "specs": {
+        "resistance": "Magnética 8 niveles",
+        "maxWeight": "120 kg usuario",
+        "seat": "Asiento reclinable con respaldo"
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+        "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80"
+      ],
+      "tags": ["cardio", "recumbente", "rehabilitacion", "bicicleta"]
+    },
+    {
+      "id": 11,
+      "model": "EL4500",
+      "name": "Elíptica Magnética Cross Trainer",
+      "brand": "B&G Sport",
+      "series": "Sport Series",
+      "category": "Elípticas",
+      "gender": "unisex",
+      "price": 2199.00,
+      "originalPrice": 2599.00,
+      "rating": 4.6,
+      "reviews": 134,
+      "badge": "PRO",
+      "inStock": false,
+      "description": "Elíptica magnética de alto rendimiento con 20 niveles de resistencia, consola LCD, movimiento de brazo dual, capacidad 130 kg.",
+      "specs": {
+        "resistance": "Magnética 20 niveles",
+        "maxWeight": "130 kg",
+        "stride": "Zancada 46 cm",
+        "display": "LCD multifunción"
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1591311630200-ffa9120a540f?w=600&q=80",
+        "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=600&q=80"
+      ],
+      "tags": ["cardio", "eliptica", "crosstrainer", "bajo impacto"]
+    },
+    {
+      "id": 12,
+      "model": "RW8800",
+      "name": "Remo Air & Magnético Profesional",
+      "brand": "E&G Fitness",
+      "series": "Pro Sport",
+      "category": "Remos",
+      "gender": "masculino",
+      "price": 2899.00,
+      "originalPrice": 3399.00,
+      "rating": 4.8,
+      "reviews": 67,
+      "badge": "PRO",
+      "inStock": false,
+      "description": "Máquina de remo profesional con resistencia combinada aire + magnética, riel plegable de aluminio, monitor LCD, capacidad 150 kg.",
+      "specs": {
+        "resistance": "Aire + Magnética",
+        "maxWeight": "150 kg",
+        "foldable": true,
+        "display": "LCD 5 funciones"
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=600&q=80",
+        "https://images.unsplash.com/photo-1605296867724-fa87a8ef53fd?w=600&q=80"
+      ],
+      "tags": ["cardio", "remo", "full body", "profesional"]
+    }
+  ],
+  "categories": ["Caminadoras", "Máquinas", "Bancos", "Bicicletas", "Elípticas", "Remos"],
+  "brands": ["E&G Fitness", "PowerFit", "B&G Sport"],
+  "series": ["Pro Sport", "Home Gym", "Compact", "Essential", "Cardio Pro", "Comfort", "Sport Series"],
+  "genders": ["unisex", "masculino", "femenino"]
+}

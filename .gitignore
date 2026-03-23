@@ -1,0 +1,20 @@
+# Herramientas de Desarrollo y Binarios
+_dev-tools/
+tailwindcss.exe
+
+# Node.js y Dependencias
+node_modules/
+.vercel/
+
+# Archivos del Sistema y Proyectos Gemini (Antigravity)
+.DS_Store
+Thumbs.db
+desktop.ini
+.gemini/
+.agents/
+.agent/
+_agents/
+_agent/
+
+# Otros
+*.log

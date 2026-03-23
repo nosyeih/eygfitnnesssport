@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>E&G Fitness Sport | Equipamiento Pro y Diseño de Vanguardia</title>
+    <meta name="description" content="Descubre E&G Fitness Sport, líderes en Perú en equipamiento de gimnasio de alto rendimiento. Ingeniería de precisión, diseño industrial y tecnología de impacto cero.">
+    <meta name="keywords" content="fitness peru, máquinas de gimnasio, equipamiento profesional, e&g fitness, cardio pro, pesas rusas, entrenamiento de élite">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eygfitness.com/">
+    <meta property="og:title" content="E&G Fitness Sport | El Templo del Alto Rendimiento">
+    <meta property="og:description" content="Equipamiento de gimnasio diseñado para el atleta exigente. Estética escultural y utilidad profesional.">
+    <meta property="og:image" content="img/logos/web-app-manifest-512x512.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://eygfitness.com/">
+    <meta property="twitter:title" content="E&G Fitness Sport | El Templo del Alto Rendimiento">
+    <meta property="twitter:description" content="Equipamiento de gimnasio diseñado para el atleta exigente. Estética escultural y utilidad profesional.">
+    <meta property="twitter:image" content="img/logos/web-app-manifest-512x512.png">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="shortcut icon" href="img/logos/favicon.svg" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="img/logos/apple-touch-icon.png" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="css/index-exclusive.css" />
+</head>
+
+<body
+    class="bg-background dark:bg-neutral-950 text-on-background dark:text-neutral-50 selection:bg-primary-container selection:text-on-primary-container transition-colors duration-300">
+    <header class="fixed top-0 w-full z-50 flex flex-col transition-colors duration-300">
+        <!-- Top Bar Amarilla -->
+        <div style="background-color:#ccf200; color:#000000;" class="w-full py-2 px-6 hidden sm:flex justify-between items-center text-[10px] md:text-xs font-bold font-space uppercase tracking-widest border-b border-black/10">
+            <div class="flex items-center gap-4 md:gap-6 w-1/3">
+                <span class="flex items-center gap-2"><i class="fa-solid fa-phone"></i> +51 979 497 037</span>
+            </div>
+            
+            <!-- Banner Animado Centro -->
+            <div class="flex-1 relative h-4 overflow-hidden flex items-center justify-center">
+                <div class="ad-item animate-slide-up" style="animation-delay: 0s;">
+                    <i class="fa-solid fa-truck-fast"></i> <span>Envíos a todo el Perú</span>
+                </div>
+                <div class="ad-item animate-slide-up" style="animation-delay: 3s;">
+                    <i class="fa-solid fa-screwdriver-wrench"></i> <span>Delivery y armado gratis</span>
+                </div>
+                <div class="ad-item animate-slide-up" style="animation-delay: 6s;">
+                    <i class="fa-solid fa-shield-halved"></i> <span>Garantía de un año</span>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4 w-1/3 justify-end">
+                <a href="https://www.instagram.com/eygfitnesssport/" target="_blank" class="hover:opacity-70 transition-opacity"><i class="fa-brands fa-instagram text-sm"></i></a>
+                <a href="https://web.facebook.com/profile.php?id=100063661026654" target="_blank" class="hover:opacity-70 transition-opacity"><i class="fa-brands fa-facebook text-sm"></i></a>
+                <a href="https://www.tiktok.com/@damiam119?_r=1&_t=ZS-94t9IpDOlNN" target="_blank" class="hover:opacity-70 transition-opacity"><i class="fa-brands fa-tiktok text-sm"></i></a>
+                <a href="https://wa.me/51979497037" target="_blank" class="hover:opacity-70 transition-opacity"><i class="fa-brands fa-whatsapp text-sm"></i></a>
+            </div>
+        </div>
+        
+        <!-- Navbar -->
+        <nav class="bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl border-b border-neutral-200 dark:border-white/5 transition-colors duration-300 w-full">
+            <div class="flex justify-between items-center px-6 py-4 max-w-screen-2xl mx-auto">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="img/logos/favicon.svg" alt="E&G Fitness Logo" class="h-10 w-auto transition-transform duration-500 group-hover:scale-110 active:scale-95" />
+                    <span class="text-2xl font-black tracking-tighter text-black dark:text-white font-space italic uppercase">E&G FITNESS</span>
+                </a>
+            
+            <div class="hidden md:flex items-center gap-12">
+                <a class="font-['Space_Grotesk'] uppercase tracking-widest text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors"
+                    href="index.html">INICIO</a>
+                <a class="font-['Space_Grotesk'] uppercase tracking-widest text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors"
+                    href="store.html?cat=Máquinas">EQUIPAMIENTO</a>
+                <a class="font-['Space_Grotesk'] uppercase tracking-widest text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors"
+                    href="store.html?cat=Caminadoras">CARDIO</a>
+                <a class="font-['Space_Grotesk'] uppercase tracking-widest text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors"
+                    href="store.html?cat=Bancos">FUERZA</a>
+                <a class="font-['Space_Grotesk'] uppercase tracking-widest text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors"
+                    href="store.html">TIENDA</a>
+            </div>
+            <div class="flex items-center gap-6">
+                <!-- Actions -->
+                <button
+                    class="text-black dark:text-white hover:text-yellow-500 transition-all duration-300 active:scale-95 flex items-center justify-center p-2 rounded" aria-label="Buscar">
+                    <span class="material-symbols-outlined" data-icon="search">search</span>
+                </button>
+                <button id="theme-toggle" class="text-black dark:text-white hover:text-yellow-500 transition-all duration-300 active:scale-95 flex items-center justify-center p-2 rounded" aria-label="Cambiar Tema">
+                    <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+                    <span class="material-symbols-outlined hidden dark:inline-block">light_mode</span>
+                </button>
+                <button onclick="window.location.href='cart.html'"
+                    class="text-black dark:text-white hover:text-yellow-500 transition-all duration-300 active:scale-95 relative p-2 flex items-center justify-center rounded" aria-label="Carrito">
+                    <span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+                    <span id="cart-count" class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full hidden">0</span>
+                </button>
+                <button
+                    class="text-black dark:text-white hover:text-yellow-500 transition-all duration-300 active:scale-95 flex items-center justify-center p-2 rounded" aria-label="Perfil">
+                    <span class="material-symbols-outlined" data-icon="person">person</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <!-- Hero Section: Kinetic Gallery -->
+        <section
+            class="relative min-h-screen flex items-center pb-20 overflow-hidden bg-white dark:bg-neutral-950 transition-colors duration-300" style="padding-top: 170px;">
+            <div class="absolute inset-0 z-0">
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-white dark:from-neutral-950 via-white/40 dark:via-neutral-950/40 to-transparent z-10 transition-colors duration-300">
+                </div>
+                <img class="w-full h-full object-cover grayscale opacity-50 dark:opacity-20"
+                    data-alt="Gimnasio de alto contraste con equipamiento profesional"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRUdM3nizh0icdi0pbYKW6ymitn5adFiopYRmAWXcED_gqIYV4svFoMVrQnGq4hKWYZ-cTqTpTP56HzUV6ZqCnFyxhMOGYP1gennJEnp7oSgKHiJ0ZbIjdnSeCv3gl-tpjcUOuOxw4UtAPyvVU-7DY19oZoLjPRus87jaKRLjrfZgn50AkivHdUsa6CWrguB1z6xcjLYeD159RlgnHCucd1CzDBemKdeInAT2Kq8A8XL9EwnEBRQCF30Fb-m6pD763qMl9tLtOODw" />
+            </div>
+            <div class="container mx-auto px-8 relative z-20">
+                <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+                    <!-- Contenido Principal Hero (Izquierda) -->
+                    <div class="w-full lg:w-3/5">
+                        <span class="font-space text-[#ccf200] tracking-[0.2em] md:tracking-[0.4em] text-xs md:text-lg uppercase mb-4 md:mb-8 block font-black">EQUIPO QUE TE HACE</span>
+                        <h1 class="font-space text-4xl sm:text-6xl md:text-8xl mb-12 italic tracking-tight">
+                            <div class="hero-premium-container">
+                                <div class="bg-grid"></div>
+                                <div class="hero-premium-inner">
+                                    <div class="premium-word" data-word="CRECER"></div>
+                                    <div class="premium-word" data-word="ENTRENAR"></div>
+                                    <div class="premium-word highlight-yellow" data-word="MEJORAR"></div>
+                                </div>
+                            </div>
+                        </h1>
+                        <p class="text-xl text-neutral-600 dark:text-neutral-400 max-w-lg mb-12 font-light leading-relaxed">
+                            Transforma tu espacio en un templo del alto rendimiento. Ingeniería de precisión y diseño de vanguardia para quienes no aceptan límites.
+                        </p>
+                        <div class="flex flex-wrap gap-6">
+                            <a href="store.html"
+                                class="bg-black dark:bg-white text-white dark:text-black px-10 py-5 font-space font-bold uppercase tracking-widest hover:bg-[#ccf200] hover:text-black dark:hover:bg-[#ccf200] transition-all duration-500 transform hover:-translate-y-1 shadow-2xl">
+                                EXPLORAR TIENDA
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Showcase Lateral (Derecha) -->
+                    <div class="w-full lg:w-2/5">
+                        <div class="top-machine-card group">
+                            <span class="machine-badge">Top Ventas</span>
+                            <div class="relative z-10">
+                                <h3 class="font-space text-2xl font-black italic mb-2 tracking-tight">MHG1601 - Máquina Multifuncional con Banco y Barra</h3>
+                                <p class="text-[10px] text-neutral-500 mb-6 uppercase tracking-[0.3em] font-bold">E&G FITNNESS SPORT</p>
+                                
+                                <div class="relative h-48 mb-8 transform group-hover:scale-110 transition-transform duration-700">
+                                    <img src="/img/products/MHG1601.webp" alt="Máquina Top" class="w-full h-full object-contain filter drop-shadow-[0_20px_40px_rgba(204,242,0,0.3)]">
+                                </div>
+
+                                <div class="space-y-3">
+                                    <button onclick="window.location.href='products/product_detail.html?id=5'" 
+                                        class="w-full bg-[#ccf200] text-black py-3 font-bold uppercase tracking-tighter hover:bg-black hover:text-[#ccf200] transition-all flex items-center justify-center gap-2 text-xs">
+                                        VER DETALLES <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="absolute bottom-12 right-12 hidden lg:block z-20">
+                <div class="flex flex-col gap-2 text-right">
+                    <div class="text-xs text-black/40 dark:text-white/40 tracking-widest uppercase">bY:</div>
+                    <div class="text-2xl font-space font-bold text-black dark:text-white italic">
+                        <a href="https://wa.me/51935533845" target="_blank">NosyeihDev</a></div>
+                </div>
+            </div>
+        </section>
+        <!-- Bento Grid Categories: The Power Grid -->
+        <section class="py-32 bg-white dark:bg-neutral-950 transition-colors duration-300 px-8 relative overflow-hidden">
+            <div class="max-w-[1400px] mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[350px]">
+                    
+                    <!-- Large Feature: FUERZA -->
+                    <div class="md:col-span-8 md:row-span-2 group relative overflow-hidden bg-black rounded-2xl shadow-2xl transition-all duration-700">
+                        <img class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000"
+                            src="img/categories/fuerza.png" alt="FUERZA - Equipamiento Pro" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-12 flex flex-col justify-end">
+                            <span class="text-[#ccf200] font-space text-xs tracking-[0.5em] mb-4 block font-black uppercase">Ingeniería Industrial</span>
+                            <h3 class="font-space text-5xl md:text-7xl font-bold text-white mb-4 italic tracking-tighter">FUERZA</h3>
+                            <p class="text-white/60 mb-8 max-w-md font-light leading-relaxed uppercase text-xs tracking-widest">
+                                Racks, discos y sistemas de precisión diseñados para el alto rendimiento.
+                            </p>
+                            <a class="w-fit bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 font-space font-bold tracking-widest text-sm flex items-center gap-3 hover:bg-[#ccf200] hover:text-black transition-all group/btn"
+                                href="store.html?cat=Máquinas">
+                                EXPLORAR <span class="material-symbols-outlined transition-transform group-hover/btn:translate-x-2">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Small Feature 1: ACCESORIOS -->
+                    <div class="md:col-span-4 md:row-span-1 group relative overflow-hidden bg-neutral-900 rounded-2xl shadow-xl transition-all duration-700">
+                        <img class="w-full h-full object-cover opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000"
+                            src="img/categories/accesorios.png" alt="ACCESORIOS Premium" />
+                        <div class="absolute inset-0 p-10 flex flex-col justify-end bg-gradient-to-t from-black/90 to-transparent">
+                            <h3 class="font-space text-3xl font-bold text-white mb-2 italic tracking-tight uppercase">ACCESORIOS</h3>
+                            <a class="text-[#ccf200] font-space font-bold tracking-widest text-[10px] uppercase flex items-center gap-2 group-hover:translate-x-2 transition-transform"
+                                href="store.html">DESCUBRIR <span class="material-symbols-outlined text-xs">north_east</span></a>
+                        </div>
+                    </div>
+
+                    <!-- Small Feature 2: PESOS LIBRES -->
+                    <div class="md:col-span-4 md:row-span-1 group relative overflow-hidden bg-neutral-900 rounded-2xl shadow-xl transition-all duration-700">
+                        <img class="w-full h-full object-cover opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000"
+                            src="img/categories/pesos_libres.png" alt="PESOS LIBRES de Precisión" />
+                        <div class="absolute inset-0 p-10 flex flex-col justify-end bg-gradient-to-t from-black/90 to-transparent">
+                            <h3 class="font-space text-3xl font-bold text-white mb-2 italic tracking-tight uppercase">PESOS LIBRES</h3>
+                            <a class="text-[#ccf200] font-space font-bold tracking-widest text-[10px] uppercase flex items-center gap-2 group-hover:translate-x-2 transition-transform"
+                                href="store.html?cat=Bancos">DESCUBRIR <span class="material-symbols-outlined text-xs">north_east</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Featured Product: The Gallery Spotlight -->
+        <section class="py-40 bg-white dark:bg-neutral-950 transition-colors duration-300">
+            <div class="container mx-auto px-8">
+                <div class="flex flex-col lg:flex-row gap-20 items-center">
+                    <div class="flex-1 relative">
+                        <div
+                            class="absolute -top-10 -left-10 text-[5rem] md:text-[10rem] font-black text-black/[0.03] dark:text-white/[0.03] font-space leading-none select-none">
+                            01</div>
+                        <div
+                            class="bg-surface-container-low dark:bg-neutral-900 p-8 relative z-10 transition-colors duration-300">
+                            <img class="w-full aspect-square object-contain" data-alt="Cinta de correr premium"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3U0uunoYy9ILDKy0Y2XxjwNJ4GCJzCblk3p2iw6xaIyaYy4CPkIN_K7QSc367zl0hCWM6RtrKy6MOzH0OGach2kq-I24Sb7KkfZhT2WYCQ3XAduGKq7TisnTYejCFZJQO4uJtVOQUYNUoji1SDbansKkQxwqbKavb-sXJ7BW67suqauacXuht5kUgzJpMjcnumgAmREOWC9GqWO7oPX6wSySrfP4mcz8W9XQ_zEu2z88FhRkpX9MHbJTUjDc9x_sDbdTvx9naaak" />
+                        </div>
+                        <div class="flex mt-4 gap-4">
+                            <div
+                                class="w-24 h-24 bg-surface-container-low dark:bg-neutral-900 p-2 cursor-pointer border border-neutral-200 dark:border-neutral-800 transition-colors">
+                                <img class="w-full h-full object-cover grayscale" data-alt="Detalle cinta de correr"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnp8ZK3gYVWRq4lahPJ4NVwR0wU_ILTyPjj3KB6AOiNUa4J9ynlZo2aaHSWZPp8Qg8qfRdXbvZTuyjP4nuUw4igeAU53fLrrHy_I8xTY1cJ_NiIJRX6g7giAR30DtO8gAhI0cQHpV1FlLqTiwqoybTUXVOPYjKHcp_zJ3jkrNJmR4ngQSxv9Ral9DcHGLqRKNe5XZQkZ_XXAb1yY3phl9Lx73uNyzHBql5_JiXzt1PvgF0v43XCRldiZ7GRWFoKUCDioj88hvoAfU" />
+                            </div>
+                            <div
+                                class="w-24 h-24 bg-surface-container-low dark:bg-neutral-900 p-2 cursor-pointer border border-transparent hover:border-neutral-200 dark:hover:border-neutral-700 transition-all">
+                                <img class="w-full h-full object-cover grayscale" data-alt="Panel cinta de correr"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCK003C0IDvglC9uaW7_vbItvnr_m8Ii2N6pgdzeh5gQUHhRKsXvA5o39-u3u_wC-jegsX6tKR0Kz_TQvDYRgtKwk0srEZpV73BlsNf3pdovbNRd_A82oPrT2cl56d5wBwlc6lJpt-Tig37Rix0hU3dW2B5iLEMLVo46KhhCHmJkI0gDlIinRERMzbqLTwz1G7X1Kaok-UDQCr494p9VEr5T9mIcBmweP6PlUWGJIUQlDJFXquONtw_TbQzhG1v73-I-XhAZ7EgkkQ" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <span
+                            class="text-primary-fixed font-space tracking-widest uppercase text-xs mb-4 block font-bold">Rendimiento
+                            Diseñado</span>
+                        <h2
+                            class="font-space text-4xl md:text-6xl font-black text-black dark:text-white mb-6 italic tracking-tighter">
+                            TITAN
+                            X-1000<br />NÚCLEO CARDIO</h2>
+                        <div class="space-y-8 mb-12">
+                            <p class="text-neutral-600 dark:text-neutral-400 leading-relaxed text-lg">
+                                Experimenta la tecnología de impacto cero gravedad. La Titan X-1000 es más que una cinta
+                                de correr: es un instrumento de precisión para el atleta de élite.
+                            </p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
+                                <div class="border-l border-neutral-200 dark:border-neutral-800 pl-4">
+                                    <div
+                                        class="text-[0.6rem] text-black/40 dark:text-white/40 font-bold tracking-widest mb-1 uppercase">
+                                        Velocidad Máx</div>
+                                    <div class="text-2xl font-space font-bold text-black dark:text-white">24 KM/H</div>
+                                </div>
+                                <div class="border-l border-neutral-200 dark:border-neutral-800 pl-4">
+                                    <div
+                                        class="text-[0.6rem] text-black/40 dark:text-white/40 font-bold tracking-widest mb-1 uppercase">
+                                        Inclinación</div>
+                                    <div class="text-2xl font-space font-bold text-black dark:text-white">20 NIVELES
+                                    </div>
+                                </div>
+                                <div class="border-l border-neutral-200 dark:border-neutral-800 pl-4">
+                                    <div
+                                        class="text-[0.6rem] text-black/40 dark:text-white/40 font-bold tracking-widest mb-1 uppercase">
+                                        Potencia Motor</div>
+                                    <div class="text-2xl font-space font-bold text-black dark:text-white">5.0 HP PICO
+                                    </div>
+                                </div>
+                                <div class="border-l border-neutral-200 dark:border-neutral-800 pl-4">
+                                    <div
+                                        class="text-[0.6rem] text-black/40 dark:text-white/40 font-bold tracking-widest mb-1 uppercase">
+                                        Conectividad</div>
+                                    <div class="text-2xl font-space font-bold text-black dark:text-white">OLED 4K</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 md:gap-10">
+                            <div class="text-3xl md:text-4xl font-space font-light text-black dark:text-white">$4,250.00</div>
+                            <a href="products/product_detail.html?id=1"
+                                class="bg-primary-container text-black px-12 py-5 font-space font-black uppercase tracking-[0.2em] text-sm hover:brightness-90 transition-all active:scale-95 inline-block">
+                                VER PRODUCTO
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Grid Product Showcase -->
+        <section
+            class="py-32 bg-surface-container-low dark:bg-neutral-900 transition-colors duration-300 overflow-hidden">
+            <div class="px-8 mb-20 flex justify-between items-end">
+                <div>
+                    <h2 class="font-space text-5xl font-black text-black dark:text-white italic tracking-tighter">LA
+                        COLECCIÓN PRINCIPAL
+                    </h2>
+                    <p class="text-black/40 dark:text-white/40 mt-2 font-space tracking-widest text-xs uppercase">
+                        Esenciales curados para espacios de alto rendimiento</p>
+                </div>
+                <a class="text-black dark:text-white hover:text-primary-fixed border-b border-black/10 dark:border-white/10 pb-2 transition-colors font-space text-xs tracking-widest uppercase"
+                    href="store.html">Explorar Todo</a>
+            </div>
+            <div
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-neutral-200 dark:bg-neutral-800 border-y border-neutral-200 dark:border-neutral-800 transition-colors duration-300">
+                <!-- Product Card 1 -->
+                <a href="products/product_detail.html?id=8"
+                    class="bg-white dark:bg-neutral-950 group cursor-pointer p-10 hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors duration-500 block">
+                    <div class="aspect-square mb-10 overflow-hidden">
+                        <img class="w-full h-full object-contain grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+                            alt="Banco Multifuncional SUB1090"
+                            src="img/products/SUB1090.webp" />
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <div class="text-[0.6rem] text-primary-fixed font-bold tracking-[0.3em] uppercase mb-1">
+                                FUERZA</div>
+                            <h3 class="font-space text-xl font-bold text-black dark:text-white uppercase italic">
+                                SUB1090 Banco Pro</h3>
+                        </div>
+                        <span
+                            class="material-symbols-outlined text-black/20 dark:text-white/20 group-hover:text-black dark:group-hover:text-white transition-colors">north_east</span>
+                    </div>
+                    <div class="text-black/60 dark:text-white/60 font-space text-sm">S/ 899.00</div>
+                </a>
+                <!-- Product Card 2 -->
+                <a href="products/product_detail.html?id=4"
+                    class="bg-white dark:bg-neutral-950 group cursor-pointer p-10 hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors duration-500 block">
+                    <div class="aspect-square mb-10 overflow-hidden">
+                        <img class="w-full h-full object-contain grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+                            alt="Máquina Multifuncional MHG1301"
+                            src="img/products/MHG1301.webp" />
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <div class="text-[0.6rem] text-primary-fixed font-bold tracking-[0.3em] uppercase mb-1">
+                                FUERZA</div>
+                            <h3 class="font-space text-xl font-bold text-black dark:text-white uppercase italic">MHG1301 Home Gym</h3>
+                        </div>
+                        <span
+                            class="material-symbols-outlined text-black/20 dark:text-white/20 group-hover:text-black dark:group-hover:text-white transition-colors">north_east</span>
+                    </div>
+                    <div class="text-black/60 dark:text-white/60 font-space text-sm">S/ 3,399.00</div>
+                </a>
+                <!-- Product Card 3 -->
+                <a href="products/product_detail.html?id=1"
+                    class="bg-white dark:bg-neutral-950 group cursor-pointer p-10 hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors duration-500 block">
+                    <div class="aspect-square mb-10 overflow-hidden">
+                        <img class="w-full h-full object-contain grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+                            alt="Caminadora TM2510EM"
+                            src="img/products/TM2510EM_1.webp" />
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <div class="text-[0.6rem] text-primary-fixed font-bold tracking-[0.3em] uppercase mb-1">
+                                CARDIO</div>
+                            <h3 class="font-space text-xl font-bold text-black dark:text-white uppercase italic">TM2510EM Caminadora</h3>
+                        </div>
+                        <span
+                            class="material-symbols-outlined text-black/20 dark:text-white/20 group-hover:text-black dark:group-hover:text-white transition-colors">north_east</span>
+                    </div>
+                    <div class="text-black/60 dark:text-white/60 font-space text-sm">S/ 2,499.00</div>
+                </a>
+                <!-- Product Card 4 -->
+                <a href="products/product_detail.html?id=2"
+                    class="bg-white dark:bg-neutral-950 group cursor-pointer p-10 hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors duration-500 block">
+                    <div class="aspect-square mb-10 overflow-hidden">
+                        <img class="w-full h-full object-contain grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+                            alt="Caminadora TM3480E Plegable"
+                            src="img/products/TM3480E_1.webp" />
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <div class="text-[0.6rem] text-primary-fixed font-bold tracking-[0.3em] uppercase mb-1">
+                                CARDIO</div>
+                            <h3 class="font-space text-xl font-bold text-black dark:text-white uppercase italic">TM3480E Plegable</h3>
+                        </div>
+                        <span
+                            class="material-symbols-outlined text-black/20 dark:text-white/20 group-hover:text-black dark:group-hover:text-white transition-colors">north_east</span>
+                    </div>
+                    <div class="text-black/60 dark:text-white/60 font-space text-sm">S/ 2,699.00</div>
+                </a>
+            </div>
+        </section>
+        <!-- Newsletter / CTA -->
+        <section
+            class="py-40 bg-white dark:bg-neutral-950 border-t border-neutral-100 dark:border-neutral-800 transition-colors duration-300 relative overflow-hidden">
+            <div
+                class="absolute right-0 top-0 text-[10rem] md:text-[20rem] font-black text-black/[0.02] dark:text-white/[0.02] font-space leading-none -translate-y-1/2 select-none italic">
+                DISEÑO</div>
+            <div class="container mx-auto px-8 relative z-10 text-center">
+                <h2
+                    class="font-space text-4xl md:text-7xl font-black text-black dark:text-white italic tracking-tighter mb-8 uppercase">
+                    ¿Buscas algo más personalizado?</h2>
+                <p class="text-black/60 dark:text-white/60 text-lg mb-12 max-w-2xl mx-auto">
+                    Desde gimnasios en casa hasta centros de alto rendimiento, diseñamos espacios que inspiran grandeza. Contáctanos directamente para una asesoría exclusiva.
+                </p>
+                <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+                    <a href="mailto:acosta19_93@hotmail.com" 
+                       class="bg-black dark:bg-white text-white dark:text-black px-12 py-5 font-space font-bold uppercase tracking-widest hover:bg-[#ccf200] hover:text-black transition-all duration-500 shadow-2xl">
+                       ENVIAR CORREO
+                    </a>
+                    <a href="https://wa.me/51979497037" 
+                       class="border-b-2 border-black dark:border-white text-black dark:text-white px-4 py-2 font-space font-bold uppercase tracking-widest hover:text-[#ccf200] transition-all duration-300">
+                       acosta19_93@hotmail.com
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer
+        class="w-full pt-20 pb-10 bg-white dark:bg-neutral-950 flex flex-col items-center px-12 border-t border-neutral-100 dark:border-neutral-800 transition-colors duration-300">
+        <div class="w-full max-w-[1920px] flex flex-col md:flex-row justify-between mb-20 gap-12">
+            <div class="flex-1">
+                <div class="flex items-center gap-4 mb-8 group">
+                    <img src="img/logos/favicon.svg" alt="E&G Fitness Logo" class="h-12 w-auto transition-transform duration-500 group-hover:rotate-[360deg]" />
+                    <div class="text-4xl font-black text-black dark:text-white font-space italic uppercase">E&G FITNESS.</div>
+                </div>
+                <p
+                    class="text-neutral-500 dark:text-neutral-400 max-w-sm font-['Inter'] text-sm leading-relaxed uppercase tracking-tighter">
+                    E&G FITNESS SPORT — DONDE EL PODER SE ENCUENTRA CON EL DISEÑO. REDEFINIENDO LA EXPERIENCIA DEL ENTRENAMIENTO PROFESIONAL.
+                </p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 flex-[2]">
+                <div class="space-y-4">
+                    <div class="text-black dark:text-white font-space text-xs font-bold tracking-widest uppercase mb-6">
+                        Equipamiento</div>
+                    <div class="flex flex-col gap-3">
+                        <a class="text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors text-xs font-['Inter'] tracking-tighter"
+                            href="store.html?cat=Caminadoras">SISTEMAS DE CARDIO</a>
+                        <a class="text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors text-xs font-['Inter'] tracking-tighter"
+                            href="store.html?cat=Máquinas">MÁQUINAS DE FUERZA</a>
+                        <a class="text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors text-xs font-['Inter'] tracking-tighter"
+                            href="store.html?cat=Bancos">BANCOS Y ACCESORIOS</a>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="text-black dark:text-white font-space text-xs font-bold tracking-widest uppercase mb-6">
+                        Compañía</div>
+                    <div class="flex flex-col gap-3">
+                        <a class="text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors text-xs font-['Inter'] tracking-tighter"
+                            href="store.html">NUESTRA TIENDA</a>
+                        <a class="text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors text-xs font-['Inter'] tracking-tighter"
+                            href="#">LEGADO</a>
+                        <a class="text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors text-xs font-['Inter'] tracking-tighter"
+                            href="#">CONTACTO</a>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="text-black dark:text-white font-space text-xs font-bold tracking-widest uppercase mb-6">
+                        Soporte</div>
+                    <div class="flex flex-col gap-3">
+                        <a class="text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors text-xs font-['Inter'] tracking-tighter"
+                            href="envios.html">ENVÍOS</a>
+                        <a class="text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors text-xs font-['Inter'] tracking-tighter"
+                            href="garantia.html">GARANTÍA</a>
+                        <a class="text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors text-xs font-['Inter'] tracking-tighter"
+                            href="politica_devoluciones.html">DEVOLUCIONES</a>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="text-black dark:text-white font-space text-xs font-bold tracking-widest uppercase mb-6">
+                        Legal</div>
+                    <div class="flex flex-col gap-3">
+                        <a class="text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors text-xs font-['Inter'] tracking-tighter"
+                            href="politicas_privacidad.html">POLÍTICA DE PRIVACIDAD</a>
+                        <a class="text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors text-xs font-['Inter'] tracking-tighter"
+                            href="terminos_servicio.html">TÉRMINOS DE SERVICIO</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8 w-full">
+            <p class="text-[10px] text-neutral-400 dark:text-neutral-500 uppercase tracking-widest font-bold">
+                © 2026 E&G FITNNESS SPORT. INGENIERÍA DE PRECISIÓN PARA EL RENDIMIENTO HUMANO.
+            </p>
+            <!-- Métodos de Pago Perú -->
+            <div class="flex items-center gap-4 opacity-70 grayscale hover:grayscale-0 transition-all duration-500 mb-6 md:mb-0">
+                <img src="https://img.icons8.com/color/48/visa.png" alt="Visa" style="height: 18px; width: auto;" class="object-contain"/>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png" alt="Mastercard" style="height: 22px; width: auto;" class="object-contain"/>
+                <img src="https://www.yape.com.pe/images/logo-yape_positive.png" alt="Yape" style="height: 38px; width: auto;" class="object-contain"/>
+                <img src="https://plin.pe/wp-content/themes/plin/imgs/xlogo.png.pagespeed.ic.WboO1xu6K9.png" alt="Plin" style="height: 38px; width: auto;" class="object-contain"/>
+            </div>
+            <div class="flex gap-8 items-center">
+                <a class="text-black dark:text-white hover:text-yellow-500 dark:hover:text-yellow-500 transition-colors text-xl" href="https://web.facebook.com/profile.php?id=100063661026654" target="_blank" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a class="text-black dark:text-white hover:text-yellow-500 dark:hover:text-yellow-500 transition-colors text-xl" href="https://www.instagram.com/eygfitnesssport/" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a class="text-black dark:text-white hover:text-yellow-500 dark:hover:text-yellow-500 transition-colors text-xl" href="#" target="_blank" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                <a class="text-black dark:text-white hover:text-yellow-500 dark:hover:text-yellow-500 transition-colors text-xl" href="#" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a class="text-black dark:text-white hover:text-yellow-500 dark:hover:text-yellow-500 transition-colors text-xl" href="https://www.tiktok.com/@damiam119?_r=1&_t=ZS-94t9IpDOlNN" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                <a class="text-black dark:text-white hover:text-yellow-500 dark:hover:text-yellow-500 transition-colors text-xl" href="#" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+    <script src="js/hero-animation.js"></script>
+</body>
+
+</html>

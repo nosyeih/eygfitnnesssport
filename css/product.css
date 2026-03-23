@@ -1,0 +1,105 @@
+/* =============================================================================
+   E&G FITNESS SPORT — product.css
+   ============================================================================= */
+
+/* ── Galería ── */
+#mainImg { transition: opacity 0.2s ease, transform 0.3s ease; width: 100%; height: 100%; object-fit: contain; }
+#mainImg.fade { opacity: 0; }
+
+.thumb { cursor: pointer; border: 2px solid transparent; overflow: hidden; transition: border-color 0.2s; }
+.thumb:hover { border-color: rgba(205,205,0,0.4); }
+.thumb.active { border-color: #cdcd00; }
+.dark .thumb:hover { border-color: rgba(234,234,0,0.4); }
+.dark .thumb.active { border-color: #eaea00; }
+
+.thumb img { width: 100%; height: 100%; object-fit: contain; filter: grayscale(1); transition: filter 0.3s; }
+.thumb:hover img, .thumb.active img { filter: grayscale(0); }
+
+.gallery-nav-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(255,255,255,0.8); color: #171717; border: none; padding: 8px;
+  border-radius: 50%; cursor: pointer; opacity: 0; transition: opacity 0.2s, background 0.2s;
+  display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.gallery-nav-btn:hover { background: #fff; }
+.dark .gallery-nav-btn { background: rgba(0,0,0,0.5); color: #fff; box-shadow: none; }
+.dark .gallery-nav-btn:hover { background: rgba(0,0,0,0.8); }
+
+.gallery-nav-btn.prev { left: 12px; }
+.gallery-nav-btn.next { right: 12px; }
+.gallery-wrap:hover .gallery-nav-btn { opacity: 1; }
+
+/* ── Spec Chips ── */
+.spec-chip { background: #fdfdfd; border: 1px solid #e5e5e5; padding: 14px 16px; }
+.dark .spec-chip { background: #1c1b1b; border-color: rgba(72,72,49,0.3); }
+
+.spec-chip .spec-key { display: block; font-size: 9px; color: #737373; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 4px; }
+.dark .spec-chip .spec-key { color: #474746; }
+
+.spec-chip .spec-val { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; color: #171717; }
+.dark .spec-chip .spec-val { color: #e5e2e1; }
+
+/* ── Accordion ── */
+.acc-content { overflow: hidden; max-height: 0; transition: max-height 0.3s ease; }
+.acc-content.open { max-height: 500px; }
+.acc-toggle .acc-icon { transition: transform 0.25s; }
+.acc-toggle.is-open .acc-icon { transform: rotate(45deg); }
+
+/* ── Cantidad (QTY) ── */
+.qty-btn {
+  width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+  background: #fdfdfd; border: 1px solid #e5e5e5; color: #171717; cursor: pointer; transition: background 0.2s;
+}
+.qty-btn:hover:not(:disabled) { background: #f5f5f5; }
+.qty-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.qty-display {
+  width: 52px; height: 40px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5;
+  display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700; font-size: 15px; background: #fff; color: #171717;
+}
+
+.dark .qty-btn { background: #1c1b1b; border-color: #353534; color: #e5e2e1; }
+.dark .qty-btn:hover:not(:disabled) { background: #353534; }
+.dark .qty-display { border-color: #353534; background: transparent; color: #e5e2e1; }
+
+/* ── Related Cards ── */
+.rel-card { cursor: pointer; }
+.rel-card .rel-img {
+  width: 100%; height: 100%; object-fit: contain; filter: grayscale(1);
+  transition: transform 0.7s cubic-bezier(0.4,0,0.2,1), filter 0.5s;
+}
+.rel-card:hover .rel-img { transform: scale(1.05); filter: grayscale(0); }
+
+/* ── Botones ── */
+.btn-primary {
+  display: flex; align-items: center; justify-content: center; width: 100%; padding: 18px;
+  background: #eaea00; color: #323200; font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700; font-size: 16px; letter-spacing: 0.05em; border: none; cursor: pointer;
+  transition: filter 0.2s, transform 0.1s;
+}
+.btn-primary:hover:not(:disabled) { filter: brightness(0.9); }
+.btn-primary:active:not(:disabled) { transform: scale(0.98); }
+.btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.btn-secondary {
+  display: flex; align-items: center; justify-content: center; width: 100%; padding: 14px;
+  background: transparent; color: #171717; font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700; font-size: 16px; letter-spacing: 0.05em; border: 1px solid rgba(0,0,0,0.1);
+  cursor: pointer; transition: background 0.2s, border-color 0.2s;
+}
+.btn-secondary:hover { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.2); }
+
+.dark .btn-secondary { color: #e5e2e1; border-color: rgba(255,255,255,0.1); }
+.dark .btn-secondary:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.2); }
+
+.btn-ghost-sm {
+  display: flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 12px;
+  background: transparent; color: #525252; font-family: 'Inter', sans-serif; font-size: 10px;
+  letter-spacing: 0.15em; text-transform: uppercase; border: 1px solid rgba(0,0,0,0.1);
+  cursor: pointer; transition: color 0.2s, border-color 0.2s; flex: 1;
+}
+.btn-ghost-sm:hover { color: #171717; border-color: rgba(0,0,0,0.2); }
+
+.dark .btn-ghost-sm { color: #939277; border-color: rgba(255,255,255,0.05); }
+.dark .btn-ghost-sm:hover { color: #e5e2e1; border-color: rgba(255,255,255,0.2); }

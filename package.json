@@ -1,0 +1,11 @@
+{
+  "name": "eyg-fitness-sport",
+  "version": "1.0.0",
+  "description": "E&G Fitness Sport - Gym Equipment & Design",
+  "scripts": {
+    "build": "npx -y tailwindcss -i ./css/input.css -o ./css/style.css"
+  },
+  "devDependencies": {
+    "tailwindcss": "latest"
+  }
+}

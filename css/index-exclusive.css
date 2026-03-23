@@ -1,0 +1,148 @@
+@keyframes slideUp {
+    0%, 5% { transform: translateY(0); opacity: 1; }
+    30% { transform: translateY(0); opacity: 1; }
+    35%, 100% { transform: translateY(-100%); opacity: 0; }
+}
+.animate-slide-up {
+    animation: slideUp 9s infinite;
+}
+.ad-item {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    opacity: 0;
+    transform: translateY(100%);
+    pointer-events: none;
+}
+
+/* HERO STRETCHED: POWER BAR DESIGN - ADAPTIVE */
+.hero-premium-container {
+    position: relative;
+    background: #000;
+    padding: 20px 0; /* Reduced padding for tighter fit */
+    border-left: 15px solid #ccf200;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 50px 120px rgba(0,0,0,0.9);
+    overflow: hidden;
+    width: fit-content; /* Ajustar al contenido para no ser excesivamente largo */
+    min-width: 500px;
+    max-width: 800px;
+    border-radius: 8px;
+    transition: all 0.5s ease;
+}
+
+/* Modo Claro Adaptación */
+html:not(.dark) .hero-premium-container {
+    background: #f5f5f5;
+    border-left-color: #000;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+}
+
+.hero-premium-inner {
+    position: relative;
+    height: 1.1em;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .hero-premium-inner {
+        padding-left: 60px;
+    }
+}
+
+.premium-word {
+    position: absolute;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 950;
+    font-style: italic;
+    font-size: 1.3em; /* Slightly larger base size */
+    letter-spacing: -0.07em;
+    text-transform: uppercase;
+    color: #fff;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    width: 100%;
+    transition: color 0.5s ease;
+}
+
+@media (min-width: 768px) {
+    .premium-word {
+        font-size: 2.2em; /* Much larger for desktop to fill box */
+    }
+    .hero-premium-inner {
+        height: 1.3em; /* Accommodate larger text */
+    }
+}
+
+html:not(.dark) .premium-word {
+    color: #000;
+}
+
+.premium-word span {
+    display: inline-block;
+    transform-origin: center bottom;
+}
+
+.highlight-yellow {
+    color: #ccf200;
+    text-shadow: 0 0 20px rgba(204, 242, 0, 0.4);
+}
+
+html:not(.dark) .highlight-yellow {
+    color: #ccf200; /* Mantener amarillo para resaltar o cambiar a otro */
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+}
+
+/* Showcase Card */
+.top-machine-card {
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 30px;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+.top-machine-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: #ccf200;
+    box-shadow: 0 30px 60px rgba(204, 242, 0, 0.15);
+}
+
+.machine-badge {
+    background: #ccf200;
+    color: #000;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+/* Grid Background Industrial */
+.bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, #333 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.2;
+}
+
+@media (max-width: 768px) {
+    .hero-premium-container { min-width: 100%; padding: 20px 10px; }
+}
