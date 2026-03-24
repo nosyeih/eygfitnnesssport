@@ -126,4 +126,53 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Escuchar evento custom de actualización (si existe en cart.js o store.js)
     window.addEventListener('cartUpdated', updateCartCount);
+
+    // 4. Global Scroll Animation (Web & Mobile)
+    const initScrollAnimations = () => {
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes premiumScrollEdge {
+                0% { opacity: 0; transform: translateY(30px); filter: blur(8px); }
+                100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+            }
+            .reveal-on-scroll { opacity: 0; }
+            .reveal-on-scroll.is-revealed {
+                animation: premiumScrollEdge 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Seleccionamos elementos clave a animar en el cuerpo principal
+        const elements = document.querySelectorAll('main h2, main h3, main p:not(.text-\\[10px\\]), main .group, main img:not(.absolute)');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-revealed');
+                    // Remueve hook de animación luego de completarse para no romper hover transitions (ej. group-hover)
+                    setTimeout(() => {
+                        entry.target.style.animation = 'none';
+                        entry.target.classList.remove('reveal-on-scroll', 'is-revealed');
+                        // Restauramos opacity para que no se oculte tras borrar la clave CSS
+                        entry.target.style.opacity = '1'; 
+                    }, 1000);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        elements.forEach((el, i) => {
+            if (el.closest('.hero-premium-container') || el.closest('.animate-slide-up') || el.closest('.drawer-overlay')) return;
+            el.classList.add('reveal-on-scroll');
+            // Cascade timing para grupos de elementos
+            el.style.animationDelay = `${(i % 5) * 0.08}s`;
+            observer.observe(el);
+        });
+    };
+    
+    // Inicializar luego del first paint
+    setTimeout(initScrollAnimations, 100);
 });

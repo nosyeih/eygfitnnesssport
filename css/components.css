@@ -155,7 +155,7 @@
     letter-spacing: 0.05em;
     transition: color 0.2s;
 }
-.bottom-nav-item.active { color: #ccf200; }
+.bottom-nav-item.active { color: #fbf008; }
 .dark .bottom-nav-item.active { color: #eaea00; }
 .bottom-nav-item .material-symbols-outlined { font-size: 24px; }
 .font-brand { font-family: 'Outfit', sans-serif; font-weight: 900; }
