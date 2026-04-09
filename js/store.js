@@ -422,7 +422,7 @@ function renderCard(p) {
     onkeydown="if(event.key==='Enter') this.click()"
   >
     <div class="relative aspect-square overflow-hidden bg-neutral-100 dark:bg-neutral-800/50 p-4">
-      <img src="${img}" alt="${p.name}" loading="lazy" decoding="async" class="card-img w-full h-full object-contain"
+      <img src="${img}" alt="${p.name} - ${p.model} | E&G Fitness Sport Perú" loading="lazy" decoding="async" class="card-img w-full h-full object-contain"
         onerror="this.src='https://placehold.co/400x400/1c1b1b/484831?text=${encodeURIComponent(p.model)}'"/>
 
       <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
