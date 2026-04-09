@@ -67,7 +67,7 @@ function renderCart() {
                 ${item.model}
               </h3>
             </div>
-            <button onclick="removeItem('${item.id}')" class="text-neutral-400 hover:text-red-500 transition-colors p-1" aria-label="Eliminar producto">
+            <button onclick="removeItem('${item.id}', '${item.variantId || ''}')" class="text-neutral-400 hover:text-red-500 transition-colors p-1" aria-label="Eliminar producto">
               <span class="material-symbols-outlined">delete</span>
             </button>
           </div>
@@ -75,13 +75,13 @@ function renderCart() {
           <div class="flex justify-between items-end mt-4">
             <!-- Quantity Control -->
             <div class="flex items-center border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900">
-              <button onclick="updateItemQty('${item.id}', -1)" class="w-8 h-8 flex items-center justify-center text-neutral-600 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors">
+              <button onclick="updateItemQty('${item.id}', '${item.variantId || ''}', -1)" class="w-8 h-8 flex items-center justify-center text-neutral-600 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors">
                 <span class="material-symbols-outlined text-[18px]">remove</span>
               </button>
               <div class="w-10 h-8 flex items-center justify-center font-headline font-bold text-sm text-neutral-900 dark:text-white border-l border-r border-neutral-200 dark:border-neutral-800">
                 ${item.qty}
               </div>
-              <button onclick="updateItemQty('${item.id}', 1)" class="w-8 h-8 flex items-center justify-center text-neutral-600 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors">
+              <button onclick="updateItemQty('${item.id}', '${item.variantId || ''}', 1)" class="w-8 h-8 flex items-center justify-center text-neutral-600 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors">
                 <span class="material-symbols-outlined text-[18px]">add</span>
               </button>
             </div>
@@ -103,9 +103,11 @@ function renderCart() {
 /**
  * Actualiza la cantidad de un producto.
  */
-window.updateItemQty = function(id, delta) {
+window.updateItemQty = function(id, variantId, delta) {
   let cart = getCart();
-  const index = cart.findIndex(i => i.id == id);
+  const vId = variantId === '' ? null : variantId;
+  const index = cart.findIndex(i => i.id == id && i.variantId == vId);
+  
   if (index > -1) {
     cart[index].qty += delta;
     if (cart[index].qty < 1) cart[index].qty = 1;
@@ -117,9 +119,10 @@ window.updateItemQty = function(id, delta) {
 /**
  * Elimina un producto entero del carrito.
  */
-window.removeItem = function(id) {
+window.removeItem = function(id, variantId) {
   let cart = getCart();
-  cart = cart.filter(i => i.id != id);
+  const vId = variantId === '' ? null : variantId;
+  cart = cart.filter(i => !(i.id == id && i.variantId == vId));
   saveCart(cart);
   renderCart();
   showToast('Producto eliminado del carrito', 'dark');

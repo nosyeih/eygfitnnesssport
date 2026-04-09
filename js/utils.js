@@ -49,6 +49,7 @@ function renderStars(rating, size = '') {
  * @returns {string}  ej. "S/ 2,499.00"
  */
 function formatPrice(price) {
+  if (price === undefined || price === null || isNaN(price)) return 'S/ 0.00';
   return 'S/ ' + price.toLocaleString('es-PE', { minimumFractionDigits: 2 });
 }
 
@@ -170,21 +171,37 @@ function saveCart(cart) {
  * Añade un producto al carrito global.
  * @param {Object} product - producto del json
  * @param {number} qty - cantidad
+ * @param {string|null} variantId - opcional: id de la variante seleccionada
  */
-window.addToGlobalCart = function(product, qty = 1) {
+window.addToGlobalCart = function(product, qty = 1, variantId = null) {
   const cart = getCart();
-  const index = cart.findIndex(item => item.id === product.id);
+  
+  // Buscar si ya existe el item con el mismo ID y misma variante
+  const index = cart.findIndex(item => item.id === product.id && item.variantId === variantId);
   
   if (index >= 0) {
     cart[index].qty += qty;
   } else {
-    // Guardamos solo data esencial para no saturar el storage
+    let finalPrice = product.price;
+    let finalModel = product.model;
+    
+    // Si hay variante, obtener info de ella
+    if (variantId && product.variants) {
+      const v = product.variants.find(varItem => varItem.id === variantId);
+      if (v) {
+        finalPrice = v.price;
+        finalModel = `${product.model} (${v.label})`; // ej: Mancuerna (10 kg)
+      }
+    }
+
+    // Guardamos data esencial
     cart.push({
       id: product.id,
+      variantId: variantId,
       name: product.name,
-      model: product.model,
+      model: finalModel,
       brand: product.brand,
-      price: product.price,
+      price: finalPrice,
       image: product.images ? product.images[0] : null,
       qty: qty
     });
@@ -202,11 +219,7 @@ function updateCartIcon() {
   const totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
   
   document.querySelectorAll('[aria-label="Carrito"]').forEach(btn => {
-    // Ya no inyectamos badges dinámicos aquí para evitar duplicados 
-    // con los IDs estáticos (#cart-count-mobile) manejados por main.js.
-    // Solo manejamos la navegación si es necesario.
     btn.onclick = (e) => {
-        // Si el link ya tiene el href correcto, no interferimos
         if (btn.tagName === 'A') return; 
         
         e.preventDefault();

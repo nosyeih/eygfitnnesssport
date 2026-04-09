@@ -11,7 +11,7 @@ let allProducts = [];
 let currentGridCols = 3;
 
 const state = {
-  priceMin:   500,
+  priceMin:   0,
   priceMax:   5000,
   categories: new Set(),
   brands:     new Set(),
@@ -279,10 +279,10 @@ function syncPriceUI(sMinId, sMaxId, lMinId, lMaxId, iMinId, iMaxId) {
 }
 
 function syncFromInputs() {
-  let min = parseInt(document.getElementById('priceMinInput').value) || 500;
+  let min = parseInt(document.getElementById('priceMinInput').value) || 0;
   let max = parseInt(document.getElementById('priceMaxInput').value) || 5000;
-  min = Math.max(500, Math.min(min, 4900));
-  max = Math.max(min + 100, Math.min(max, 5000));
+  min = Math.max(0, Math.min(min, 4900));
+  max = Math.max(min + 1, Math.min(max, 5000));
   
   document.getElementById('sliderMin').value = min;
   document.getElementById('sliderMax').value = max;
@@ -438,8 +438,8 @@ function renderCard(p) {
         <div class="card-add-btn absolute bottom-4 left-4 right-4">
           <button
             class="w-full py-3 bg-primary-container text-on-primary text-[10px] font-headline font-bold tracking-[0.15em] hover:bg-yellow-300 transition-colors"
-            onclick="event.stopPropagation(); addToCart(${p.id})"
-          >AGREGAR AL CARRITO</button>
+            onclick="event.stopPropagation(); ${p.type === 'variable' ? `location.href='products/product_detail.html?id=${p.id}'` : `addToCart(${p.id})`}"
+          >${p.type === 'variable' ? 'VER OPCIONES' : 'AGREGAR AL CARRITO'}</button>
         </div>` : ''}
     </div>
 
@@ -451,7 +451,10 @@ function renderCard(p) {
         <span class="text-[10px] text-neutral-500 font-label">${p.rating} (${p.reviews})</span>
       </div>
       <div class="flex items-baseline gap-3">
-        <span class="font-headline font-bold text-xl text-neutral-900 dark:text-neutral-100">${formatPrice(p.price)}</span>
+        <span class="font-headline font-bold text-xl text-neutral-900 dark:text-neutral-100">
+          ${p.type === 'variable' ? '<span class="text-[10px] font-normal text-neutral-500 mr-1 uppercase">Desde</span>' : ''}
+          ${formatPrice(p.price)}
+        </span>
         ${p.originalPrice && p.originalPrice > p.price
           ? `<span class="text-neutral-600 line-through text-sm font-light font-label">${formatPrice(p.originalPrice)}</span>`
           : ''}
@@ -515,7 +518,7 @@ function clearFilterValue(type, value) {
    ═══════════════════════════════════════════════════════════════════════════ */
 function clearAllFilters() {
   ['categories','brands','series','genders'].forEach(k => state[k].clear());
-  state.priceMin  = 500;
+  state.priceMin  = 0;
   state.priceMax  = 5000;
   state.minRating = 0;
   state.inStock   = false;

@@ -7,10 +7,11 @@
 /* ═══════════════════════════════════════════════════════════════════════════
    ESTADO GLOBAL
    ═══════════════════════════════════════════════════════════════════════════ */
-let product      = null;
-let allProducts  = [];
-let currentImgIdx = 0;
-let quantity     = 1;
+let product           = null;
+let allProducts       = [];
+let currentImgIdx     = 0;
+let quantity          = 1;
+let selectedVariantId = null;
 
 /** Ruta base para imágenes locales (desde /products/ hacia /img/) */
 const IMG_BASE = '../';
@@ -98,6 +99,12 @@ function renderProduct() {
     show('productOldPrice');
   }
 
+  // Variants
+  renderVariants();
+
+  // Gifts
+  renderGifts();
+
   // Stock
   const stockEl = document.getElementById('productStock');
   if (stockEl) {
@@ -105,15 +112,29 @@ function renderProduct() {
       ? `<span class="stock-in"><span class="material-symbols-outlined" style="font-size:16px">check_circle</span>En stock</span>`
       : `<span class="stock-out"><span class="material-symbols-outlined" style="font-size:16px">cancel</span>Agotado temporalmente</span>`;
   }
-  if (!p.inStock) {
+
+  const updateCartButtons = () => {
     const addBtn = document.getElementById('addToCartBtn');
-    if (addBtn) { addBtn.disabled = true; addBtn.classList.add('opacity-40','cursor-not-allowed'); }
-  } else {
-    const addBtn = document.getElementById('addToCartBtn');
-    if (addBtn) addBtn.onclick = () => window.addToGlobalCart(p, window.quantity || 1);
+    if (addBtn) {
+        if (!p.inStock) {
+            addBtn.disabled = true; addBtn.classList.add('opacity-40','cursor-not-allowed');
+        } else {
+            addBtn.disabled = false; addBtn.classList.remove('opacity-40','cursor-not-allowed');
+            addBtn.onclick = () => window.addToGlobalCart(p, window.quantity || 1, selectedVariantId);
+        }
+    }
     const buyBtn = document.getElementById('buyNowBtn');
-    if (buyBtn) buyBtn.onclick = () => { window.addToGlobalCart(p, window.quantity || 1); location.href = '../cart.html'; };
-  }
+    if (buyBtn) {
+        if (!p.inStock) {
+            buyBtn.disabled = true; buyBtn.classList.add('opacity-40','cursor-not-allowed');
+        } else {
+            buyBtn.disabled = false; buyBtn.classList.remove('opacity-40','cursor-not-allowed');
+            buyBtn.onclick = () => { window.addToGlobalCart(p, window.quantity || 1, selectedVariantId); location.href = '../cart.html'; };
+        }
+    }
+  };
+
+  updateCartButtons();
 
   // Descripción
   setText('productDesc', p.description);
@@ -131,6 +152,87 @@ function renderProduct() {
 
   // Galería
   renderGallery(p.images);
+}
+
+/* ─── Variantes ── */
+function renderVariants() {
+  const container = document.getElementById('productVariants');
+  if (!container) return;
+
+  if (product.type !== 'variable' || !product.variants?.length) {
+    container.innerHTML = '';
+    container.classList.add('hidden');
+    return;
+  }
+
+  container.classList.remove('hidden');
+  selectedVariantId = product.variants[0].id; // Default first
+
+  container.innerHTML = `
+    <span class="text-[10px] text-neutral-500 uppercase tracking-widest font-label font-bold mb-2 block">Seleccionar ${product.variantType || 'opción'}</span>
+    <div class="flex flex-wrap gap-2">
+      ${product.variants.map(v => `
+        <button 
+          onclick="setVariant('${v.id}')" 
+          id="btn-variant-${v.id}"
+          class="variant-chip ${v.id === selectedVariantId ? 'active' : ''}"
+        >
+          ${v.label}
+        </button>
+      `).join('')}
+    </div>
+  `;
+  
+  // Trigger price update for default
+  setVariant(selectedVariantId);
+}
+
+window.setVariant = function(id) {
+  selectedVariantId = id;
+  const v = product.variants.find(x => x.id === id);
+  if (!v) return;
+
+  // Update UI price
+  setText('productPrice', formatPrice(v.price).replace('S/ ', ''));
+  
+  const oldPriceEl = document.getElementById('productOldPrice');
+  if (v.originalPrice && v.originalPrice > v.price) {
+    oldPriceEl.textContent = formatPrice(v.originalPrice);
+    oldPriceEl.classList.remove('hidden');
+  } else {
+    oldPriceEl.classList.add('hidden');
+  }
+
+  // Update active chip
+  document.querySelectorAll('.variant-chip').forEach(btn => {
+    btn.classList.toggle('active', btn.id === `btn-variant-${id}`);
+  });
+
+  // Update cart buttons callback with new variant
+  const addBtn = document.getElementById('addToCartBtn');
+  if (addBtn) addBtn.onclick = () => window.addToGlobalCart(product, window.quantity || 1, selectedVariantId);
+  const buyBtn = document.getElementById('buyNowBtn');
+  if (buyBtn) buyBtn.onclick = () => { window.addToGlobalCart(product, window.quantity || 1, selectedVariantId); location.href = '../cart.html'; };
+}
+
+/* ─── Regalos ── */
+function renderGifts() {
+  const container = document.getElementById('productGifts');
+  const list = document.getElementById('giftsList');
+  if (!container || !list) return;
+
+  if (!product.gifts || !product.gifts.length) {
+    container.classList.add('hidden');
+    return;
+  }
+
+  container.classList.remove('hidden');
+  list.innerHTML = product.gifts.map(gift => `
+    <li class="flex items-center gap-3 text-sm text-neutral-700 dark:text-neutral-300 font-medium">
+      <span class="material-symbols-outlined text-[#fbf008]" style="font-size:14px">check_circle</span>
+      ${gift}
+    </li>
+  `).join('');
 }
 
 /* ─── Specs ── */
