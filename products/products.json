@@ -30,6 +30,7 @@
         "2 pesas de 1 kg"
       ],
       "images": [
+        "img/products/TM2510EM_1.jpg",
         "img/products/TM2510EM_1.webp",
         "img/products/TM2510EM_2.webp",
         "img/products/TM2510EM_3.webp",
@@ -73,6 +74,7 @@
         "Pesa de 1 kg"
       ],
       "images": [
+        "img/products/6810DS0.jpg",
         "img/products/6810DS.jpg"
       ],
       "tags": ["cardio", "inteligente", "wifi", "multimedia", "premium"]
@@ -101,6 +103,7 @@
         "runningArea": "460 x 1300 mm"
       },
       "images": [
+        "img/products/TM3480E_1.jpg",
         "img/products/TM3480E_1.webp",
         "img/products/TM3480E_2.webp",
         "img/products/TM3480E_3.webp",
@@ -139,6 +142,7 @@
         "extras": "Freno de emergencia + Ruedas"
       },
       "images": [
+        "img/products/BCTRSF0.jpg",
         "img/products/BCTRSF.jpg"
       ],
       "tags": ["cardio", "spinning", "profesional", "transformers"]
@@ -178,6 +182,7 @@
         { "id": "v50", "label": "Par 50 kg", "price": 650.00, "stock": 2 }
       ],
       "images": [
+        "img/products/MHEX0.jpg",
         "img/products/MHEX.jpg"
       ],
       "tags": ["fuerza", "mancuernas", "funcional", "caucho"]
@@ -206,6 +211,7 @@
         { "id": "t220", "label": "2.20 mt", "price": 200.00, "stock": 3 }
       ],
       "images": [
+        "img/products/BarraRecta0.jpg",
         "img/products/BarraRecta.jpg"
       ],
       "tags": ["fuerza", "barra", "olimpica", "acero"]
@@ -231,6 +237,7 @@
         { "id": "t150", "label": "1.50 mt", "price": 130.00, "stock": 8 }
       ],
       "images": [
+        "img/products/BarraZeta0.jpg",
         "img/products/BarraZeta.jpg"
       ],
       "tags": ["fuerza", "barra", "olimpica", "acero"]
@@ -257,6 +264,7 @@
         { "id": "d15", "label": "Par 15 kg", "price": 195.00, "stock": 30 }
       ],
       "images": [
+        "img/products/DISCOS0.jpg",
         "img/products/DISCOS.jpg"
       ],
       "tags": ["fuerza", "discos", "olimpicos", "uretano"]
@@ -286,6 +294,7 @@
         "runningArea": "400 x 1200 mm"
       },
       "images": [
+        "img/products/CAMEL0.jpg",
         "img/products/CAMEL.webp"
       ],
       "tags": ["cardio", "principiante", "entrada"]
@@ -316,6 +325,7 @@
         "special": "Absorción de impactos, alineación automática"
       },
       "images": [
+        "img/products/TPAR0.jpg",
         "img/products/TPAR.jpg"
       ],
       "tags": ["cardio", "profesional", "alto rendimiento", "ac motor"]
@@ -346,7 +356,10 @@
         "special": "Masajeador + Soporte Abdominal"
       },
       "gifts": ["Aceite Lubricante"],
-      "images": ["img/products/5080D.jpg"],
+      "images": [
+        "img/products/5080D0.jpg",
+        "img/products/5080D.jpg"
+      ],
       "tags": ["cardio", "domestico", "3en1", "compacto"]
     },
     {
@@ -375,7 +388,10 @@
         "foldable": "Plegable con cilindro"
       },
       "gifts": ["Aceite Lubricante"],
-      "images": ["img/products/TM1460.jpg"],
+      "images": [
+        "img/products/TM14600.jpg",
+        "img/products/TM1460.jpg"
+      ],
       "tags": ["cardio", "automatico", "plegable", "robusta"]
     },
     {
@@ -403,7 +419,10 @@
         "special": "Masajeador incorporado"
       },
       "gifts": ["Aceite Lubricante"],
-      "images": ["img/products/TRE2IN1.jpg"],
+      "images": [
+        "img/products/TRE2IN10.jpg",
+        "img/products/TRE2IN1.jpg"
+      ],
       "tags": ["cardio", "domestico", "compacto", "2en1"]
     },
     {
@@ -436,7 +455,10 @@
         "Disco de cintura Twister",
         "2 pesas de 1 kg"
       ],
-      "images": ["img/products/6860DS.jpg"],
+      "images": [
+        "img/products/6860DS0.jpg",
+        "img/products/6860DS.jpg"
+      ],
       "tags": ["cardio", "semi-profesional", "3en1", "plegable"]
     },
     {
@@ -460,7 +482,10 @@
         "material": "Tubo de acero + Cuero sintético",
         "adjustable": "Vertical, declinado, inclinado, horizontal"
       },
-      "images": ["img/products/649.jpg"],
+      "images": [
+        "img/products/6490.jpg",
+        "img/products/649.jpg"
+      ],
       "tags": ["fuerza", "banco", "rack", "pecho"]
     },
     {
@@ -484,7 +509,10 @@
         "material": "Tubo de acero + Cuero sintético",
         "adjustable": "Múltiples posiciones"
       },
-      "images": ["img/products/489.jpg"],
+      "images": [
+        "img/products/4890.jpg",
+        "img/products/489.jpg"
+      ],
       "tags": ["fuerza", "biceps", "predicador", "piernas"]
     },
     {
@@ -508,7 +536,10 @@
         "material": "Tubo de acero + Cuero sintético",
         "adjustable": "Vertical, declinado, inclinado, horizontal"
       },
-      "images": ["img/products/349.jpg"],
+      "images": [
+        "img/products/3490.jpg",
+        "img/products/349.jpg"
+      ],
       "tags": ["fuerza", "ajustable", "basico", "mancuernas"]
     },
     {
@@ -532,7 +563,7 @@
         "material": "Tubo de acero + Cuero sintético",
         "fixed": "Estructura plana fija"
       },
-      "images": ["img/products/MBAJ.png"],
+      "images": ["img/products/MBAJ0.jpg"],
       "tags": ["fuerza", "plano", "basico", "pecho"]
     }
     ,
@@ -565,6 +596,7 @@
         "Tobillera de Polea"
       ],
       "images": [
+        "img/products/MHG13010.jpg",
         "img/products/MHG1301.webp"
       ],
       "tags": ["fuerza", "multifuncional", "completo", "prensa", "hogar"]
@@ -599,6 +631,7 @@
         "Tobillera de Polea"
       ],
       "images": [
+        "img/products/MHG16010.jpg",
         "img/products/MHG1601.webp"
       ],
       "tags": ["fuerza", "multifuncional", "boxeo", "dominadas", "premium"]
@@ -632,6 +665,7 @@
         "Tobillera de Polea"
       ],
       "images": [
+        "img/products/MHG63200.jpg",
         "img/products/MHG6320.webp"
       ],
       "tags": ["fuerza", "multiestacion", "prensa", "sentadilla"]
@@ -658,6 +692,7 @@
         "adjustable": false
       },
       "images": [
+        "img/products/SUB10600.jpg",
         "img/products/SUB1060.webp"
       ],
       "tags": ["abdominales", "core", "banco", "fuerza"]
@@ -684,6 +719,7 @@
         "extras": "Curl bíceps + piernas"
       },
       "images": [
+        "img/products/SUB10900.jpg",
         "img/products/SUB1090.webp"
       ],
       "tags": ["banco", "ajustable", "bicep", "piernas", "fuerza"]

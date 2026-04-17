@@ -66,6 +66,7 @@ function renderCart() {
               <h3 class="font-headline font-bold text-lg md:text-xl text-neutral-900 dark:text-white uppercase leading-tight tracking-tighter cursor-pointer hover:text-primary-fixed" onclick="location.href='products/product_detail.html?id=${item.id}'">
                 ${item.model}
               </h3>
+              ${item.extraInfo?.weight ? `<span class="text-[10px] bg-neutral-100 dark:bg-neutral-800 px-2 py-0.5 rounded text-neutral-600 dark:text-neutral-400 font-label font-bold uppercase tracking-widest mt-1 inline-block">PESO: ${item.extraInfo.weight}</span>` : ''}
             </div>
             <button onclick="removeItem('${item.id}', '${item.variantId || ''}')" class="text-neutral-400 hover:text-red-500 transition-colors p-1" aria-label="Eliminar producto">
               <span class="material-symbols-outlined">delete</span>
@@ -136,21 +137,29 @@ function proceedToWhatsApp() {
   if (cart.length === 0) return;
 
   const phone = "51979497037"; // Número del usuario
-  let text = "Hola *E&G FITNESS SPORT*, quisiera consultar por el siguiente pedido:\n\n";
-  text += "🛒 *RESUMEN DE MI CARRITO:*\n\n";
+  let text = "Hola *E&G FITNESS SPORT*, quisiera realizar un pedido desde la web:\n\n";
+  text += "🏋️ *DETALLE DEL PEDIDO:*\n";
+  text += "━━━━━━━━━━━━━━━━━━━━━\n\n";
   
   let total = 0;
   cart.forEach((item, i) => {
     total += item.price * item.qty;
-    text += `🔹 *${item.model}* (${item.brand})\n`;
-    text += `   Cant: ${item.qty} unid.\n`;
-    text += `   Precio: S/ ${(item.price * item.qty).toLocaleString('es-PE', {minimumFractionDigits:2})}\n\n`;
+    text += `*${i + 1}. ${item.model}*\n`;
+    text += `   🔸 Marca: ${item.brand}\n`;
+    if (item.extraInfo?.weight) {
+        text += `   ⚖️ Peso: ${item.extraInfo.weight}\n`;
+    }
+    text += `   🔢 Cantidad: ${item.qty} ${item.qty > 1 ? 'unidades' : 'unidad'}\n`;
+    text += `   💵 Subtotal: S/ ${(item.price * item.qty).toLocaleString('es-PE', {minimumFractionDigits:2})}\n\n`;
   });
 
-  text += `-----------------------------------\n`;
-  text += `💰 *TOTAL DEL PEDIDO:* S/ ${total.toLocaleString('es-PE', {minimumFractionDigits:2})}\n`;
-  text += `-----------------------------------\n\n`;
-  text += "📍 Quedo a la espera de confirmación de stock y costos de envío. ¡Gracias!";
+  text += `━━━━━━━━━━━━━━━━━━━━━\n`;
+  text += `💰 *TOTAL A PAGAR: S/ ${total.toLocaleString('es-PE', {minimumFractionDigits:2})}*\n`;
+  text += `━━━━━━━━━━━━━━━━━━━━━\n\n`;
+  text += "📍 *Información adicional:*\n";
+  text += "- Solicito confirmación de Stock.\n";
+  text += "- Consultar costos de envío y armado.\n\n";
+  text += "¡Quedo atento a su respuesta!";
 
   const waURL = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
   window.open(waURL, '_blank');

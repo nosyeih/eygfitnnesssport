@@ -184,14 +184,26 @@ window.addToGlobalCart = function(product, qty = 1, variantId = null) {
   } else {
     let finalPrice = product.price;
     let finalModel = product.model;
+    let variantLabel = null;
     
     // Si hay variante, obtener info de ella
     if (variantId && product.variants) {
       const v = product.variants.find(varItem => varItem.id === variantId);
       if (v) {
         finalPrice = v.price;
+        variantLabel = v.label;
         finalModel = `${product.model} (${v.label})`; // ej: Mancuerna (10 kg)
       }
+    }
+
+    // Datos extra para Mancuernas/Discos (especial para E&G)
+    const extraInfo = {};
+    if (product.category === 'Mancuernas' || product.category === 'Barras' || product.category === 'Discos') {
+        // Intentar extraer peso del label (ej: "Par 10 kg" -> "10 kg")
+        if (variantLabel) {
+            const weightMatch = variantLabel.match(/(\d+(\.\d+)?)\s*kg/i);
+            if (weightMatch) extraInfo.weight = weightMatch[0];
+        }
     }
 
     // Guardamos data esencial
@@ -201,9 +213,11 @@ window.addToGlobalCart = function(product, qty = 1, variantId = null) {
       name: product.name,
       model: finalModel,
       brand: product.brand,
+      category: product.category,
       price: finalPrice,
       image: product.images ? product.images[0] : null,
-      qty: qty
+      qty: qty,
+      extraInfo: extraInfo
     });
   }
   
@@ -218,6 +232,16 @@ function updateCartIcon() {
   const cart = getCart();
   const totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
   
+  // Actualizar contadores (escritorio y móvil)
+  ['cart-count', 'cart-count-mobile'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+        el.textContent = totalItems;
+        if (totalItems > 0) el.classList.remove('hidden');
+        else el.classList.add('hidden');
+    }
+  });
+
   document.querySelectorAll('[aria-label="Carrito"]').forEach(btn => {
     btn.onclick = (e) => {
         if (btn.tagName === 'A') return; 
